@@ -3,7 +3,7 @@
 # For now copy contents from footer and header html and add to your html file
 
 Anjana: HomePage,App Details
-Kalana: 
-Tharushi:
-Sahan:
-Pinsara:
+Kalana: Search, Category 
+Tharushi: Sign in, Sign Up, Dev Sign Up
+Sahan: Dev Account, Payment
+Pinsara: Contact/About Us, User Profile
