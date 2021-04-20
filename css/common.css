@@ -5,7 +5,9 @@
   }
 
 .header {
-    padding: 80px;
+    border: 1px solid;
+    box-shadow: 5px 10px black;
+    padding: 10px;
     text-align: center;
     background: #1abc9c;
     color: white;
