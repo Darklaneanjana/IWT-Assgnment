@@ -7,4 +7,3 @@ Kalana: Search, Category
 Tharushi: Sign in, Sign Up, Dev Sign Up
 Sahan: Dev Account, Payment
 Pinsara: Contact/About Us, User Profile
-dsngkjsgkj
