@@ -62,13 +62,16 @@ $Hpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
 function createUser($conn,$name,$email,$uid,$Hpwd){
   
-    $sql = "insert into users  (name,email,uid,userPsw) value($name,$email,$uid,$Hpwd);";
-    if(!mysqli_query($conn, $sql)){
-        header("location: ../signup.php?error=none");
-    }else{
-        header("location: ../signup.php?error=stmtfailed");
-        exit();
-    }
+    $sql = "insert into users  (name,email,uid,userPsw) value('hello','anjanadarklane@gmail.com','Darklane','1234');";
+    // 'hello','hello@gmail.com','hello,'1234'
+    mysqli_query($conn, $sql);
+    echo $name;
+    // if(!mysqli_query($conn, $sql)){
+    //     header("location: ../signup.php?error=none");
+    // }else{
+    //     header("location: ../signup.php?error=stmtfailed");
+    //     exit();
+    // }
   
     mysqli_close($conn);
     exit();
@@ -86,7 +89,6 @@ function emptyInputSignin($name,$pwd){
     return $result;
 }
 
-
 function loginUser($conn,$name,$pwd){
     $uidExixst = uidExists($conn,$name,$name);
     if ($uidExixst==false){
@@ -94,18 +96,13 @@ function loginUser($conn,$name,$pwd){
         exit();
     }
     $Hpwd = $uidExixst["userPsw"];
-    $checkPwd = password_verify($pwd,$Hpwd);
-    
-    // if($checkPwd == false){
     if($pwd !== $Hpwd){
-        echo $Hpwd;
-        echo $pwd;
-        // header("location:../signin.php?error=wrongPassword");
+        header("location:../signin.php?error=wrongPassword");
         exit();
     }
     else{
         session_start();
-        $_SESSION["userID"] = $uidExixst["userID"];
+        $_SESSION["userID"] = $uidExixst["uid"];
         $_SESSION["name"] = $uidExixst["name"];
         header("location:../index.php");
         exit();
