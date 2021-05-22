@@ -1,10 +1,10 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/Dev-Account.css">
-    <script src="../js/Dev-Account.js"></script>
+    <link rel="stylesheet" href="../css/ContactAbout-Us.css">
+    <script src="../js/ContactAbout-Us.js"></script>
     <title>
-        Dev-Account
+        Contact/About-Us
     </title>
 </head>
 <body>
@@ -13,6 +13,12 @@
            document.write("Hello World!")
         //-->
      </script>  
+<?php
+require_once('html/header.php');
+?>
+<?php
+require_once('html/footer.php');
+?> 
 </body>
 
 </html>

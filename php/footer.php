@@ -3,14 +3,14 @@
   <div class="item1"><img src="images/logo.png"  class="flogo"></div>
   <div class="item2">
 				    <h4 >OUR PRODUCTS</h4>
-				    <span class="li">
+				    <span class="lil">
 				    <a href="#" rel="" title="Aptoide App" target="_blank">App</a><br>
 				    <a href="#" rel="" title="Aptoide TV" target="_blank">TV</a><br>
 				    <a href="#" rel="" title="AppCoins Wallet" target="_blank">Wallet</a><br>
 				    <a href="#" rel="" title="Uploader" target="_blank">Uploader</a><br>
 			      <a href="#" rel="" title="Support" target="_blank">Support</a></span></div>
   <div class="item3"><h4 >OUR PRODUCTS</h4>
-				    <span class="li">
+				    <span class="lil">
 				    <a href="#" rel="" title="Aptoide App" target="_blank">App</a><br>
 				    <a href="#" rel="" title="Aptoide TV" target="_blank">TV</a><br>
 				    <a href="#" rel="" title="AppCoins Wallet" target="_blank">Wallet</a><br>
@@ -18,7 +18,7 @@
 			      <a href="#" rel="" title="Support" target="_blank">Support</a></span></div> 
   <div class="item5">©2021 App Store.com. All rights reserved</div>
   <div class="item4">
-	  <span class="li">
+	  <span class="lil">
 	  	<span class="FooterItem"><a href="#" rel="nofollow">Legal Information</a></span>
 		<span class="FooterItem"><a href="#" rel="nofollow">Cookie Policy</a></span>
 	 	<span class="FooterItem"><a href="#" rel="nofollow">Privacy Policy</a></span></div>
@@ -34,3 +34,8 @@
 		
 </div>
 </footer>
+
+</body>
+</html>
+
+<html>

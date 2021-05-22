@@ -1,0 +1,55 @@
+html, body {padding:0; margin:0; height:100%;}
+.cont{
+    
+}
+.apptitle{
+    color: #555;
+    padding-top:5px;
+    margin: 0px;      
+    font-size: 15px;  
+    padding-left: 5px;  
+}
+.appdet{
+    padding-top: 12px;
+    font-size: 11px;
+    padding:0px 10px 0px 10px;
+}
+
+.approwTitle{
+    padding:0px 20px 0px 20px;
+    margin: 0px;
+    /* background: seagreen; */
+    /* height:40px; */
+    margin: 0px;
+}
+.AppRow{
+    /* margin: 12px auto; */
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 3px 3px 2px;
+    overflow: hidden;
+    height: 200px;
+    margin-top: 4%;
+}
+
+.appBar{
+    margin-left:auto;
+    margin-right:auto;
+    /* background: red; */
+}
+.appbox{
+    box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px 1px;
+    background: lightcyan;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 5px;
+    float:left;
+    width:10%;
+    /* width: 80px; */
+    /* position:absolute; */
+}
+.appbox img{
+    width:100%;
+    /* padding: 5px; */
+}

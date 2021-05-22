@@ -1,10 +1,10 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/Sign-in.css">
-    <script src="../js/Sign-in.js"></script>
+    <link rel="stylesheet" href="../css/Payment.css">
+    <script src="../js/Payment.js"></script>
     <title>
-        Sign-in
+        Payment
     </title>
 </head>
 <body>
@@ -13,6 +13,13 @@
            document.write("Hello World!")
         //-->
      </script>  
+
+<?php
+require_once('html/header.php');
+?>
+<?php
+require_once('html/footer.php');
+?> 
 </body>
 
 </html>

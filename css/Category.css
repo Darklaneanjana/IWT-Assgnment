@@ -1,0 +1,37 @@
+.cat{
+    width: 90%;
+    /* background-color: tomato; */
+    margin: 5% 0% 5% 0% ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.catdet{
+    width: 20%;
+    /* background-color: tomato; */
+}
+
+
+
+.button {
+    background-color: white;
+    color: black;
+    padding: 16px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #999;
+    width: 20%;
+  }
+  
+ 
+  
+  .button:hover {
+    background-color: #999;
+    color: #111;
+  }
+  

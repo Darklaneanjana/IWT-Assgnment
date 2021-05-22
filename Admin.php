@@ -1,10 +1,10 @@
 <html>
 <head>
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/User-Profile.css">
-    <script src="../js/User-Profile.js"></script>
+    <link rel="stylesheet" href="../css/Category.css">
+    <script src="../js/Category.js"></script>
     <title>
-        User-Profile
+        Online App Store
     </title>
 </head>
 <body>
@@ -13,6 +13,13 @@
            document.write("Hello World!")
         //-->
      </script>  
+
+<?php
+require_once('html/header.php');
+?>
+<?php
+require_once('html/footer.php');
+?> 
 </body>
 
 </html>
