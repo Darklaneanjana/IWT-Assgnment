@@ -11,7 +11,7 @@ $crow = getcats($conn);
 
 <?php
     foreach ($crow as $value) {
-        echo "<a href=applist.php?dogID=cat&catID=" . $value["catID"] . " '  ><button class='button'>" . $value["catName"] . "</button></a>";
+        echo "<a href=applist.php?type=cat&catID=" . $value["catID"] . " '  ><button class='button'>" . $value["catName"] . "</button></a>";
         
     }
 ?>

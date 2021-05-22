@@ -22,7 +22,6 @@
 	  	<span class="FooterItem"><a href="#" rel="nofollow">Legal Information</a></span>
 		<span class="FooterItem"><a href="#" rel="nofollow">Cookie Policy</a></span>
 	 	<span class="FooterItem"><a href="#" rel="nofollow">Privacy Policy</a></span></div>
-	  </span>
 					
 	<div class="item7">
 		
@@ -30,9 +29,9 @@
 				<a href="#" ><img src="images/Social/t.webp" alt="Twiter" class="social-media-a"></a>
 				<a href="#" ><img src="images/Social/i.webp" alt="Instagram" class="social-media-a"></a>
 				<a href="#" ><img src="images/Social/y.webp" alt="Youtube" class="social-media-a"></a>
-				<a href="#" ><img src="images/Social/in.webp" alt="linkedin" class="social-media-a"></a></div></div>
+				<a href="#" ><img src="images/Social/in.webp" alt="linkedin" class="social-media-a"></a></div>
+	</div>
 		
-</div>
 </footer>
 
 </body>

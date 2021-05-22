@@ -1,7 +1,7 @@
 
 <?php
 require_once('php/header.php');
-// require_once('html/common.php');
+require_once('html/common.php');
 if (isset($_SESSION["userID"])){
     echo "<p>Hello there ".$_SESSION["name"]."</p>";
 
@@ -11,9 +11,7 @@ if (isset($_SESSION["userID"])){
 				
 
 <div class="cont">
-    <div class="AppRow">
-
-            
+    <div class="AppRow"> 
             <div class="approwTitle">
             <div style="float: left;">
             <img src="£" style="display: inline-block;">
