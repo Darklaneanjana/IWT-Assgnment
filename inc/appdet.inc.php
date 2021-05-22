@@ -1,8 +1,16 @@
 <?php
 require_once 'dbh.inc.php';
+function getappss($conn,$aID){
+    $sql = mysqli_query($conn,"select * from appss where AppID = '" . $aID . "' ");
+    $row = mysqli_fetch_array($sql);
+    if($row){
+        return $row;
+    }
+    mysqli_close($conn);
+    }
 
 function getappinfo($conn,$aID){
-    $sql = mysqli_query($conn,"select * from app where AppID = '" . $aID . "' ");
+    $sql = mysqli_query($conn,"select * from App where AppID = '" . $aID . "' ");
     $row = mysqli_fetch_array($sql);
     if($row){
         return $row;
@@ -10,18 +18,6 @@ function getappinfo($conn,$aID){
     mysqli_close($conn);
     }
 
-function getappss($conn,$aID){
-    $sql = mysqli_query($conn,"select * from Appss where AppID = '" . $aID . "' ");
-    $row = mysqli_fetch_array($sql);
-    if($row){
-        return $row;
-    }
-    mysqli_close($conn);
-    }
-
-
-
-    
 function getappdev($conn,$aID){
     $sql = mysqli_query($conn,"select * from appdev where AppID = '" . $aID . "' ");
     $row = mysqli_fetch_array($sql);

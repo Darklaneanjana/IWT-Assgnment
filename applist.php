@@ -24,13 +24,13 @@ if($_GET["type"]=='cat'){
                 // if($value["size"] >1000){
                 //     $size = $value["size"]/10
                 // }
-                echo "<div class='appbox'>   
+                echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
                     <img src='images/Apps/1.webp'>
                     <p class='apptitle'><b>" . $value["appName"] ."</b></p>
                     <div class='appdet'>
                     <p style='float: left;'>100</p>
                     <p style='float: right;'>" . $value["size"] ."MB</p></div>
-                </div>";
+                </div></a>";
             }
         ?>     
     </div>

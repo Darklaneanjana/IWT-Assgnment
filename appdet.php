@@ -5,11 +5,9 @@ require_once('php/header.php');
 require_once('inc/appdet.inc.php');
 $arow = getappinfo($conn,$_GET["app"]);
 $srow = getappss($conn,$_GET["app"]);
-$drow = getappdev($conn,$_GET["app"]);
+
 ?>
 <section class="section">
-
-
 
 
 <div class="det">
@@ -19,7 +17,7 @@ $drow = getappdev($conn,$_GET["app"]);
     
 
     <div>
-        <?php echo "<img class='logo' src='images/Apps/" . $srow['ss'] . ".webp'>"   ?>
+        <?php echo "<img class='logo' src='images/Apps/" . $srow['SS'] . ".webp'>";  $drow = getappdev($conn,$_GET["app"]); ?>
     </div>
 
     <div>
@@ -50,7 +48,7 @@ $drow = getappdev($conn,$_GET["app"]);
         <?php echo $arow['buildNo']; ?>
     </div>
     <div style="float: right;"><img src="#"><p style="margin: 2px;">Downloads: <?php echo $arow['buildNo']; ?></p></div>
-    <div  style="float: right;"><img src="#"><p style="margin: 2px;">Size:<?php echo $arow['buildNo']; ?></p></div>
+    <div  style="float: right;"><img src="#"><p style="margin: 2px;">Size:<?php echo $arow['size']; ?>MB</p></div>
     </div>
 
 </div>

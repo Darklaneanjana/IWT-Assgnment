@@ -34,6 +34,10 @@ if(isset($_POST["submit"])){
     // }
 
     createUser($conn,$name,$email,$uid,$pwd);
+    echo $name;
+    echo $email;
+    echo $uid;
+    echo $pwd;
 
      }
     else{

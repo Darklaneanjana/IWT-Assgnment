@@ -1,7 +1,7 @@
-
+<link rel="stylesheet" type="text/css" href="css/common.css?v=1" />
+<link rel="stylesheet" type="text/css" href="css/homepage.css?v=1" />
 <?php
 require_once('php/header.php');
-require_once('html/common.php');
 if (isset($_SESSION["userID"])){
     echo "<p>Hello there ".$_SESSION["name"]."</p>";
 
