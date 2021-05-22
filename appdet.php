@@ -8,8 +8,6 @@ $srow = getappss($conn,$_GET["app"]);
 
 ?>
 <section class="section">
-
-
 <div class="det">
 
     <div class="dettop">
@@ -54,9 +52,6 @@ $srow = getappss($conn,$_GET["app"]);
 </div>
 
 
-
-
-
 <div class="des">
     <div><h2>Description</h2></div>
     <?php
@@ -68,7 +63,6 @@ $srow = getappss($conn,$_GET["app"]);
 <div class="rat">
 <div><p>Rating</p></div>
 </div>
-
 
 <div class="com">
     <div><h2>Comments</h2></div>
@@ -88,8 +82,6 @@ $srow = getappss($conn,$_GET["app"]);
     </div>
     
 </div>
-
-
 
 </section>
 <?php
