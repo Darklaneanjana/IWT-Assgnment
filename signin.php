@@ -4,7 +4,6 @@
 require_once('php/header.php');
 ?>
 
-
 <section>
 
 <form action="inc/signin.inc.php" method="POST">
@@ -38,21 +37,7 @@ require_once('php/header.php');
 </form>
 
 
-
-
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php

@@ -1,19 +1,22 @@
 <link rel="stylesheet" type="text/css" href="css/admin.css?v=1" />
 <?php
-require_once('inc/admin.inc.php');
-require_once('php/header.php');
 
-if (isset($_SESSION["userID"])){
-    if ($_SESSION["type"]!=="Admin"){
-        header("location:index.php?error=notAdmin");
-        exit();
+    require_once('inc/admin.inc.php');
+    require_once('php/header.php');
+
+    if (isset($_SESSION["userID"])){
+
+        if ($_SESSION["type"]!=="Admin"){
+            header("location:index.php?error=notAdmin");
+            exit();
+        }else{
+            echo "<p>Hello there ".$_SESSION["name"]."</p>";
+        }
+        
     }else{
-        echo "<p>Hello there ".$_SESSION["name"]."</p>";
+        header("location:signin.php?error=notLoggedIn");
+            exit();
     }
-}else{
-    header("location:signin.php?error=notLoggedIn");
-        exit();
-}
 ?>
 
 

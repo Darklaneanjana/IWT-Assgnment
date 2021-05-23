@@ -46,21 +46,17 @@ function pwdMatch($pwd,$pwdrep){
 }
 
 
-
 $Hpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-function createUser($conn,$name,$email,$uid,$Hpwd){
+function createUser($conn,$name,$email,$uid,$pwd){
   
-    $sql = "insert into users  (name,email,uid,userPsw) value('hello','anjanadarklane@gmail.com','Darklane','1234');";
-    // 'hello','hello@gmail.com','hello,'1234'
-    mysqli_query($conn, $sql);
-    echo $name;
-    // if(!mysqli_query($conn, $sql)){
-    //     header("location: ../signup.php?error=none");
-    // }else{
-    //     header("location: ../signup.php?error=stmtfailed");
-    //     exit();
-    // }
+    $sql = "insert into users  (name,email,uid,userPsw) value('" . $name. "','" . $email. "','" . $uid. "','" . $pwd. "');";
+    if(mysqli_query($conn, $sql)){
+        header("location: ../signup.php?error=none");
+    }else{
+        header("location: ../signup.php?error=stmtfailed");
+        exit();
+    }
   
     mysqli_close($conn);
     exit();
