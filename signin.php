@@ -11,15 +11,7 @@ require_once('php/header.php');
     <input type="text" name="uid" placeholder="email/username..">
     <input type="password" name="pwd" placeholder="password..">
     <button type="submit" name="submit" >Log In</button>
-</form>
-    <a href="signup.php">sign up</a>
-
-<form action="inc/signin.inc.php" method="POST">
-    <button type="submit" name="submit" >logout</button>
-</form>
-
-
-<!-- <?php
+    <?php
     if(isset($_GET["error"])){
         if($_GET["error"]=="emptylogin"){
             echo "<p>fill in fields</p>";
@@ -37,7 +29,16 @@ require_once('php/header.php');
             echo "<p>password is wrong</p>";
         }
     }
-?> -->
+?>
+</form>
+    <a href="signup.php">sign up</a>
+
+<form action="inc/signin.inc.php" method="POST">
+    <button type="submit" name="submit" >logout</button>
+</form>
+
+
+
 
 </section>
 

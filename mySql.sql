@@ -53,3 +53,9 @@ create TABLE appdev(
 	FOREIGN KEY (AppID) REFERENCES app(AppID),
     FOREIGN KEY (devID) REFERENCES dev(devID)
     );
+
+CREATE TABLE admin(
+ 	AdminID int(10) not null PRIMARY KEY AUTO_INCREMENT,
+    AID varchar(20) not null,
+    aPsw varchar(20) not null
+    );

@@ -1,10 +1,10 @@
-<link rel="stylesheet" type="text/css" href="css/common.css?v=1" />
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
 <?php
-require_once('php/header.php');
 require_once('inc/dev.inc.php');
+require_once('php/header.php');
+
 if (isset($_SESSION["userID"])){
-    if ($_SESSION["userID"]!=="Dev"){
+    if ($_SESSION["type"]!=="Dev"){
         header("location:index.php?error=notDev");
         exit();
     }else{
@@ -15,9 +15,7 @@ if (isset($_SESSION["userID"])){
         exit();
 }
 ?>
-<?php
-require_once('html/header.php');
-?>
+
 
 
 
@@ -28,5 +26,5 @@ require_once('html/header.php');
 
 
 <?php
-require_once('html/footer.php');
+require_once('php/footer.php');
 ?> 

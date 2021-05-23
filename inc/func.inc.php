@@ -45,18 +45,7 @@ function pwdMatch($pwd,$pwdrep){
     return $result;
 }
 
-function uidExists($conn,$uid,$email){
-    $sql = mysqli_query($conn,"select * from users where uid = '" . $uid . "' or email = '" . $email . "' ");
-    $row = mysqli_fetch_array($sql);
-    if($row){
-        return $row;
-    }
-    else{
-        $result = false;
-        return $result;
-    }
-    mysqli_close($conn);
-}
+
 
 $Hpwd = password_hash($pwd, PASSWORD_DEFAULT);
 
@@ -90,23 +79,86 @@ function emptyInputSignin($name,$pwd){
 }
 
 function loginUser($conn,$name,$pwd){
+
     $uidExixst = uidExists($conn,$name,$name);
     if ($uidExixst==false){
         header("location:../signin.php?error=wronglogin");
         exit();
     }
-    $Hpwd = $uidExixst["userPsw"];
-    if($pwd !== $Hpwd){
-        header("location:../signin.php?error=wrongPassword");
+
+    if( array_key_exists("uid", $uidExixst) ){
+        $Hpwd = $uidExixst["userPsw"];
+        if($pwd !== $Hpwd){
+            header("location:../signin.php?error=wrongPassword");
+            exit();
+        }
+        else{
+            session_start();
+            $_SESSION["userID"] = $uidExixst["uid"];
+            $_SESSION["name"] = $uidExixst["name"];
+            $_SESSION["type"] = "User";
+            header("location:../index.php");
+            exit();
+        }   
+    }
+
+    else if( array_key_exists("devID", $uidExixst)){
+        $Hpwd = $uidExixst["DevPsw"];
+        if($pwd !== $Hpwd){
+            header("location:../signin.php?error=wrongPassword");
+            exit();
+        }
+        else{
+            session_start();
+            $_SESSION["userID"] = $uidExixst["devUID"];
+            $_SESSION["name"] = $uidExixst["devName"];
+            $_SESSION["type"] = "Dev";
+            header("location:../devAccount.php");
+            exit();
+        }
+    }
+
+    elseif(array_key_exists("AdminID", $uidExixst)){
+        $Hpwd = $uidExixst["aPsw"];
+        if($pwd !== $Hpwd){
+            header("location:../signin.php?error=wrongPassword");
+            exit();
+        }
+        else{
+            session_start();
+            $_SESSION["userID"] = $uidExixst["AdminUID"];
+            $_SESSION["name"] = $uidExixst["AdminName"];
+            $_SESSION["type"] = "Admin";
+            header("location:../Admin.php");
+            exit();
+        } 
+    }
+
+}
+
+function uidExists($conn,$uid,$email){
+
+    $sql1 = mysqli_query($conn,"select * from users where uid = '" . $uid . "' or email = '" . $email . "' ");
+    $sql2 = mysqli_query($conn,"select * from dev where devUID = '" . $uid . "' or email = '" . $email . "' ");
+    $sql3 = mysqli_query($conn,"select * from admin where AdminUID = '" . $uid . "' or email = '" . $email . "' ");
+
+    if($row1 = mysqli_fetch_array($sql1)){
+        return $row1;
+        exit();
+    }
+    else if($row2 = mysqli_fetch_array($sql2)){
+        return $row2;
+        exit();
+    }
+    else if($row3 = mysqli_fetch_array($sql3)){
+        return $row3;
         exit();
     }
     else{
-        session_start();
-        $_SESSION["userID"] = $uidExixst["uid"];
-        $_SESSION["name"] = $uidExixst["name"];
-        $_SESSION["type"] = "Dev";
-        header("location:../index.php");
+        $result = false;
+        return $result;
         exit();
     }
-
+   
+    mysqli_close($conn);
 }

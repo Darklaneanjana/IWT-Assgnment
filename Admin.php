@@ -1,10 +1,10 @@
-<link rel="stylesheet" type="text/css" href="css/common.css?v=1" />
-<link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
+<link rel="stylesheet" type="text/css" href="css/admin.css?v=1" />
 <?php
+require_once('inc/admin.inc.php');
 require_once('php/header.php');
-require_once('inc/applist.inc.php');
+
 if (isset($_SESSION["userID"])){
-    if ($_SESSION["userID"]!=="Admin"){
+    if ($_SESSION["type"]!=="Admin"){
         header("location:index.php?error=notAdmin");
         exit();
     }else{
@@ -15,12 +15,14 @@ if (isset($_SESSION["userID"])){
         exit();
 }
 ?>
+
+
+
+
+
+
+
+
 <?php
-require_once('html/header.php');
-?>
-
-
-
-<?php
-require_once('html/footer.php');
+require_once('php/footer.php');
 ?> 
