@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 02:28 PM
+-- Generation Time: May 23, 2021 at 06:05 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -75,7 +75,7 @@ INSERT INTO `app` (`AppID`, `appName`, `Description`, `price`, `appType`, `build
 (7, 'pubg', 'this is pubg', 4.4, 'p', '1.4v', 1, 1, 10, 'A'),
 (8, 'pubg', 'this is pubg', 4.4, 'p', '1.4v', 1, 1, 10, 'A'),
 (9, 'pubg', 'this is pubg', 4.4, 'p', '1.4v', 1, 1, 10, 'A'),
-(10, 'pubg', 'this is pubg', 4.4, 'p', '1.4v', 1, 1, 10, 'A');
+(10, 'pubg', 'this is pubg', 4.4, 'p', '1.4v', 1, 2, 10, 'A');
 
 -- --------------------------------------------------------
 
@@ -213,6 +213,20 @@ INSERT INTO `category` (`catID`, `catName`, `catSlug`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `cid` int(10) NOT NULL,
+  `AppID` int(10) NOT NULL,
+  `uid` int(10) NOT NULL,
+  `date` datetime NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dev`
 --
 
@@ -249,6 +263,28 @@ CREATE TABLE `payment` (
   `Pammount` float NOT NULL,
   `pType` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rating`
+--
+
+CREATE TABLE `rating` (
+  `Rid` int(11) NOT NULL,
+  `AppID` int(10) DEFAULT NULL,
+  `rating` int(10) DEFAULT NULL,
+  `uid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rating`
+--
+
+INSERT INTO `rating` (`Rid`, `AppID`, `rating`, `uid`) VALUES
+(1, 1, 5, 1),
+(2, 1, 4, 2),
+(3, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -322,6 +358,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`catID`);
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`cid`);
+
+--
 -- Indexes for table `dev`
 --
 ALTER TABLE `dev`
@@ -335,6 +377,12 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`PayID`),
   ADD KEY `UserID` (`UserID`),
   ADD KEY `AppID` (`AppID`);
+
+--
+-- Indexes for table `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`Rid`);
 
 --
 -- Indexes for table `users`
@@ -365,6 +413,12 @@ ALTER TABLE `category`
   MODIFY `catID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `cid` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `dev`
 --
 ALTER TABLE `dev`
@@ -375,6 +429,12 @@ ALTER TABLE `dev`
 --
 ALTER TABLE `payment`
   MODIFY `PayID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `Rid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
