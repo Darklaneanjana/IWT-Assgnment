@@ -33,11 +33,17 @@ function getlist($conn,$t){
             array_push($crow,$row);
         }
     }else if($t=="TD"){
-        $sql = mysqli_query($conn,"select * from app where appCat='G' ;");
+        $sql = mysqli_query($conn,"select * from appDown ORDER BY downloads DESC ;");
         $crow=array();
         while($row = mysqli_fetch_array($sql)){
-            array_push($crow,$row);
+            $sql1 = mysqli_query($conn,"select * from app where AppId=". $row["AppID"]. " ;");
+            $row1 = mysqli_fetch_array($sql1);
+            array_push($crow,$row1);
+            
         }
+
+        
+        
     }
     if($crow){
         return $crow;

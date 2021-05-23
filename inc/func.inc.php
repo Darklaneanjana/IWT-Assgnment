@@ -104,6 +104,7 @@ function loginUser($conn,$name,$pwd){
         session_start();
         $_SESSION["userID"] = $uidExixst["uid"];
         $_SESSION["name"] = $uidExixst["name"];
+        $_SESSION["type"] = "Dev";
         header("location:../index.php");
         exit();
     }

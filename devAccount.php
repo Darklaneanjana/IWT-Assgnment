@@ -2,10 +2,10 @@
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
 <?php
 require_once('php/header.php');
-require_once('inc/applist.inc.php');
+require_once('inc/dev.inc.php');
 if (isset($_SESSION["userID"])){
-    if ($_SESSION["userID"]!=="Admin"){
-        header("location:index.php?error=notAdmin");
+    if ($_SESSION["userID"]!=="Dev"){
+        header("location:index.php?error=notDev");
         exit();
     }else{
         echo "<p>Hello there ".$_SESSION["name"]."</p>";
@@ -18,6 +18,12 @@ if (isset($_SESSION["userID"])){
 <?php
 require_once('html/header.php');
 ?>
+
+
+
+
+
+
 
 
 
