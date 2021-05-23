@@ -1,8 +1,8 @@
 <?php 
 require_once 'dbh.inc.php';
 
-function getcats($conn,$t){
-    $sql = mysqli_query($conn,"select * from app");
+function getcats($conn,$catID){
+    $sql = mysqli_query($conn,"select * from app where catID=" . $catID . ";");
     $crow=array();
     while($row = mysqli_fetch_array($sql)){
         array_push($crow,$row);

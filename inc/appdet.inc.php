@@ -19,12 +19,22 @@ function getappinfo($conn,$aID){
     }
 
 function getappdev($conn,$aID){
-    $sql = mysqli_query($conn,"select * from appdev where AppID = '" . $aID . "' ");
+    $sql = mysqli_query($conn,"SELECT appdev.AppID, dev.devName FROM appdev INNER JOIN dev ON appdev.DevID = dev.DevID where AppID='" . $aID . "' ");
     $row = mysqli_fetch_array($sql);
-    $sql1 = mysqli_query($conn,"select * from dev where DevID = '" . $row['devID'] . "' ");
-    $row1 = mysqli_fetch_array($sql1);
-    if($row1){
-        return $row1;
+ 
+    if($row){
+        return $row;
+    }
+    mysqli_close($conn);
+    }
+
+    
+function getappdown($conn,$aID){
+    $sql = mysqli_query($conn,"SELECT * FROM appdown where AppID='" . $aID . "' ");
+    $row = mysqli_fetch_array($sql);
+ 
+    if($row){
+        return $row;
     }
     mysqli_close($conn);
     }

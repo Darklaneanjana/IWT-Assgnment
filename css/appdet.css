@@ -9,13 +9,16 @@
 }
 .detbot{
   /* height: 10%; */
-  border: solid black 1px;
-  background: red;
+  border: solid #ddd 1px;
+  background: #eee;
   display:flex;
   justify-content: space-between;
   align-items: center;
 	flex-wrap: wrap;
-  padding: 0px 50px 0px 50px ;
+  padding: 5px 50px 5px 50px ;
+  border-radius: 5px;
+  font-size: 90%;
+
 }
 .section{
   padding: 10px;
@@ -34,9 +37,24 @@
 }
 
 .logo{
-  height: 150px;
+  width:200px ;
   border-radius: 10px;
+  margin: 5px;
 }
 .detbut{
-  
+  background-color: #4b595c; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 7%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10%;
+  margin-left: 20%;
+  cursor: pointer;
+}
+button a{
+  text-decoration: none;
+  color: white;
 }

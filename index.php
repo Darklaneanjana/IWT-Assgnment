@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css?v=1" />
 <link rel="stylesheet" type="text/css" href="css/homepage.css?v=1" />
 <?php
+require_once('inc/appdet.inc.php');
 require_once('php/header.php');
 require_once('inc/applist.inc.php');
 if (isset($_SESSION["userID"])){
@@ -27,14 +28,9 @@ if (isset($_SESSION["userID"])){
                         $TDrow = getlist($conn,"a");
                         $stop =0;
                         foreach ($TDrow as $value) {
+                            $downrow = getappdown($conn,$value["AppID"]);
                             $stop++;
-                            echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
-                                <img src='images/Apps/1.webp'>
-                                <p class='apptitle'><b>" . $value["appName"] ."</b></p>
-                                <div class='appdet'>
-                                <p style='float: left;'>100</p>
-                                <p style='float: right;'>" . $value["size"] ."MB</p></div>
-                            </div></a>";
+                            include 'inc/appBox.php';
                             if($stop==8){
                                 break;
                             }
@@ -62,14 +58,9 @@ if (isset($_SESSION["userID"])){
                         $TDrow = getlist($conn,"g");
                         $stop =0;
                         foreach ($TDrow as $value) {
+                            $downrow = getappdown($conn,$value["AppID"]);
                             $stop++;
-                            echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
-                                <img src='images/Apps/1.webp'>
-                                <p class='apptitle'><b>" . $value["appName"] ."</b></p>
-                                <div class='appdet'>
-                                <p style='float: left;'>100</p>
-                                <p style='float: right;'>" . $value["size"] ."MB</p></div>
-                            </div></a>";
+                            include 'inc/appBox.php';
                             if($stop==8){
                                 break;
                             }
@@ -97,14 +88,9 @@ if (isset($_SESSION["userID"])){
                     $TDrow = getlist($conn,"B");
                     $stop =0;
                     foreach ($TDrow as $value) {
+                        $downrow = getappdown($conn,$value["AppID"]);
                         $stop++;
-                        echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
-                            <img src='images/Apps/1.webp'>
-                            <p class='apptitle'><b>" . $value["appName"] ."</b></p>
-                            <div class='appdet'>
-                            <p style='float: left;'>100</p>
-                            <p style='float: right;'>" . $value["size"] ."MB</p></div>
-                        </div></a>";
+                        include 'inc/appBox.php';
                         if($stop==8){
                             break;
                         }
@@ -131,14 +117,9 @@ if (isset($_SESSION["userID"])){
                     $TDrow = getlist($conn,"TD");
                     $stop =0;
                     foreach ($TDrow as $value) {
+                        $downrow = getappdown($conn,$value["AppID"]);
                         $stop++;
-                        echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
-                            <img src='images/Apps/1.webp'>
-                            <p class='apptitle'><b>" . $value["appName"] ."</b></p>
-                            <div class='appdet'>
-                            <p style='float: left;'>100</p>
-                            <p style='float: right;'>" . $value["size"] ."MB</p></div>
-                        </div></a>";
+                        include 'inc/appBox.php';
                         if($stop==8){
                             break;
                         }
