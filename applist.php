@@ -3,8 +3,6 @@
 require_once('inc/appdet.inc.php');
 require_once('inc/applist.inc.php');
 require_once('php/header.php');
-
-
 ?>
 
 <section class="section">
