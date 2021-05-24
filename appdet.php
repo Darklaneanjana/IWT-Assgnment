@@ -3,6 +3,7 @@
 <?php
 require_once('php/header.php');
 require_once('inc/appdet.inc.php');
+require_once('inc/dbh.inc.php');
 require_once('inc/com.inc.php');
 $arow = getappinfo($conn,$_GET["app"]);
 $srow = getappss($conn,$_GET["app"]);
@@ -76,7 +77,7 @@ $drow = getappdev($conn,$_GET["app"]);
                 if (isset($_SESSION["userID"])){
                     echo "<form method='POST' action='#'>
                         <input type='hidden' name = 'uid' value=" . $_SESSION["userID"] . ">
-                        <input type='hidden' name = 'date' value='".date('Y-m-d H:i:s')."'>
+                        <input type='hidden' name = 'date' value='" .date('Y-m-d H:i:s'). "'>
                         <textarea name='message'></textarea>
                         <button>Comment</button>
                         </form>";
@@ -94,29 +95,26 @@ $drow = getappdev($conn,$_GET["app"]);
         <div>
                 <?php
                     // date_default_timezone_get('Asia/India');
-                    echo date('Y-m-d H:i:S');
+                    echo date('Y-m-d H:i:s');
                 ?>
 
-                <form method="POST" action="inc/com.inc.php">
-                    <input type="hidden" name="uid" value="Anonymoys">
-                    <input type="hidden" name="date" value=date('Y-m-d H:i:S')>
-                    <textarea name="message"></textarea>
-                    <button type="submit" name=" submit">comment</button>
-                </form>
-
-
-
-
-            <?php
-            if (isset($_SESSION["userID"])){
-                echo "<form method='POST' action='#'>
-                    <input type='hidden' name = 'uid' value=" . $_SESSION["userID"] . ">
-                    <input type='hidden' name = 'date' value='".date('Y-m-d H:i:s')."'>
+                <?php   
+                echo "<form method='POST' action=  'inc/com.inc.php'>
+                    <input type='hidden' name='uid' value=1>
+                    <input type='hidden' name='AppID' value='1'>
+                    <input type='hidden' name='date' value=". date('Y-m-d H:i:s').">
                     <textarea name='message'></textarea>
-                    <button>Comment</button>
-                    </form>";
-            }
-            ?>
+                    <button type='submit' name='submitCom'>comment</button>
+                </form>";
+                getCom($conn);
+                ?>
+
+
+
+
+            <!-- if (isset($_SESSION["userID"])){
+            } -->
+
 
         </div>
         

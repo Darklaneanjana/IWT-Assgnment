@@ -69,12 +69,16 @@ button a{
 }
 
 
+
+
+
 textarea{
   width: 400px;
   width: 80px;
   background-color: #999;
   resize: none;
 }
+
 form button{
   width: 100px;
   height: 30px;
