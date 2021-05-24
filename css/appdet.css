@@ -58,3 +58,26 @@ button a{
   text-decoration: none;
   color: white;
 }
+
+
+.rate{
+
+}
+
+.comm{
+
+}
+
+
+textarea{
+  width: 400px;
+  width: 80px;
+  background-color: #999;
+  resize: none;
+}
+form button{
+  width: 100px;
+  height: 30px;
+  background-color: black;
+  color: #fff;
+}

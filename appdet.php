@@ -3,10 +3,12 @@
 <?php
 require_once('php/header.php');
 require_once('inc/appdet.inc.php');
+require_once('inc/com.inc.php');
 $arow = getappinfo($conn,$_GET["app"]);
 $srow = getappss($conn,$_GET["app"]);
 $downrow = getappdown($conn,$_GET["app"]);
-$drow = getappdev($conn,$_GET["app"])
+$drow = getappdev($conn,$_GET["app"]);
+
 ?>
 <section class="section">
 
@@ -63,13 +65,47 @@ $drow = getappdev($conn,$_GET["app"])
     </div>
 
 
-    <div class="rat">
+
+<!--                          Rate                             -->
+
+    <div class="rate">
     <div><p>Rating</p></div>
+        <div>
+
+                <?php
+                if (isset($_SESSION["userID"])){
+                    echo "<form method='POST' action='#'>
+                        <input type='hidden' name = 'uid' value=" . $_SESSION["userID"] . ">
+                        <input type='hidden' name = 'date' value='".date('Y-m-d H:i:s')."'>
+                        <textarea name='message'></textarea>
+                        <button>Comment</button>
+                        </form>";
+                }
+                ?>
+
+        </div>
     </div>
 
-    <div class="com">
+
+<!--                        Comment                                    -->
+
+    <div class="comm">
         <div><h2>Comments</h2></div>
         <div>
+                <?php
+                    // date_default_timezone_get('Asia/India');
+                    echo date('Y-m-d H:i:S');
+                ?>
+
+                <form method="POST" action="inc/com.inc.php">
+                    <input type="hidden" name="uid" value="Anonymoys">
+                    <input type="hidden" name="date" value=date('Y-m-d H:i:S')>
+                    <textarea name="message"></textarea>
+                    <button type="submit" name=" submit">comment</button>
+                </form>
+
+
+
 
             <?php
             if (isset($_SESSION["userID"])){
