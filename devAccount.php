@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
 <script>
     function validateForm() {
-        var x = document.forms["myForm"]["appName"]["Description"]["appType"]["buildNo"]["appCat"]["appSS"]["appfile"].value;
+        var x = document.forms["myForm"]["appName"]["Description"]["appType"]["buildNo"]["appCat"]["appSS"]["appFile"].value;
         if (x == "" || x == null) {
 
             document.getElementById("a").style.backgroundColor = "red";
