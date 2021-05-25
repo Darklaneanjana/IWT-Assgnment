@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         if ($appSSError === 0) {
             if ($appSSsize < 50000000) {
                 $appSSnewName = uniqid('', true) . '.' . $appSSActualExt;
-                $appSSDestination = '../APPSS/' . $appSSnewName;
+                $appSSDestination = '../images/Apps/' . $appSSnewName;
                 move_uploaded_file($appSStmpName, $appSSDestination);
                 // header("Location: ../devAccount.php?uploadsuccessfull");
             } else {
