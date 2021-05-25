@@ -1,14 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
-<script>
-    function validateForm() {
-        var x = document.forms["myForm"]["appName"]["Description"]["appType"]["buildNo"]["appCat"]["appSS"]["appfile"].value;
-        if (x == "" || x == null) {
 
-            document.getElementById("a").style.backgroundColor = "red";
-            return false;
-        }
-    }
-</script>
 <?php
 require_once('php/header.php');
 
@@ -28,19 +19,18 @@ if (isset($_SESSION["userID"])) {
 <body>
 
     <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="appName" placeholder="App Name"><br>
-        <input type="text" name="Description" placeholder="App Description"><br>
-        <input type="text" name="appType" placeholder="App Type"><br>
-        <input type="text" name="buildNo" placeholder="BuildNo"><br>
-        <input type="text" name="appCat" placeholder="App Category"><br>
-        <input type="file" name="appSS"><br>
-        <input type="file" name="appFile"><br>
-        <input type="submit" name="submit" value="Upload">
-        <a href="devAccount.php">Cancel</a>
-
+            <input type="text" name="appName" placeholder="App Name" required><br>
+            <input type="text" name="Description" placeholder="App Description" required><br>
+            <input type="text" name="appType" placeholder="App Type" required><br>
+            <input type="text" name="buildNo" placeholder="BuildNo" required><br>
+            <input type="text" name="appCat" placeholder="App Category" required><br>
+            <input type="file" name="appSS" required><br>
+            <input type="file" name="appFile" required><br>
+            <input type="submit" name="submit" value="Upload">
+            <a href="devAccount.php">Cancel</a>
     </form>
 
-    ?>
+    
 
 </body>
 
