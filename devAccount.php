@@ -1,4 +1,14 @@
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "" || x == null) {
+    
+    document.getElementById("a").style.backgroundColor = "red";
+    return false;
+  }
+}
+</script>
 <?php
 require_once('php/header.php');
 
@@ -17,7 +27,7 @@ if (isset($_SESSION["userID"])) {
 
 <body>
 
-    <form action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+    <form name="myForm" id ="a" onsubmit="return validateForm()"  action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
         <input type="text" name="appName" placeholder="App Name"><br>
         <input type="text" name="Description" placeholder="App Description"><br>
         <input type="text" name="appType" placeholder="App Type"><br>
@@ -30,8 +40,7 @@ if (isset($_SESSION["userID"])) {
 
     </form>
 
-
-
+    ?>
 
 </body>
 
