@@ -3,7 +3,6 @@ require_once 'dbh.inc.php';
 
 
 
-
 if (isset($_POST['submit'])) {
 
     /*$appName = $_POST['appName'];
@@ -72,5 +71,6 @@ if (isset($_POST['submit'])) {
         echo "You cannot upload of files this type..!!!";
     }
 }
+
 //$sql = "INSERT INTO app(appID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
 //VALUES('','$appName','$Description','$price','$appType','$buildNo','','','$fileSize','$appCat');";
