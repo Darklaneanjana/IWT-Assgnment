@@ -30,19 +30,6 @@ if (isset($_SESSION["userID"])) {
             <a href="devAccount.php">Cancel</a>
     </form>
 
-    <?php
-    function getcats($conn,$devID){
-    $sql = mysqli_query($conn,"select * from app where devID=" . $devID . ";");
-    $crow=array();
-    while($row = mysqli_fetch_array($sql)){
-        array_push($crow,$row);
-    }
-    if($crow){
-        return $crow;
-    }
-    mysqli_close($conn);
-}
-?>
 
 </body>
 

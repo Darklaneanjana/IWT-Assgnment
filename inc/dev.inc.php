@@ -76,13 +76,3 @@ if (isset($_POST['submit'])) {
 //VALUES('','$appName','$Description','$price','$appType','$buildNo','','','$fileSize','$appCat');";
 
 
-/*function getCat($conn){
-    $sql = mysqli_query($conn,"select * from category");
-    while($row = mysqli_fetch_array($sql)){
-        echo $row['message'];
-        echo $row['date'];
-        echo $row['UserID'];
-        $sql1 = mysqli_query($conn,"  SELECT users.uid,comment.cid FROM users INNER JOIN comment ON users.UserID = comment.UserID where cid=".$row['cid']." ;");
-        $row1 = mysqli_fetch_array($sql1);
-        echo $row1['uid']."<br>";
-    }*/
