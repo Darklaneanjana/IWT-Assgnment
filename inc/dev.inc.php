@@ -5,11 +5,11 @@ require_once 'dbh.inc.php';
 
 if (isset($_POST['submit'])) {
 
-    /*$appName = $_POST['appName'];
+    $appName = $_POST['appName'];
     $Description = $_POST['Description'];
     $appType = $_POST['appType'];
     $buildNo = $_POST['buildNo'];
-    $appCat = $_POST['appCat'];*/
+    $appCat = $_POST['appCat'];
 
     $appSS = $_FILES['appSS'];
 
