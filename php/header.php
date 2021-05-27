@@ -31,7 +31,9 @@
 				<a href="#" class="">Link</a></div>
 			
 			<div class="search">
-				<form action="/search.php" method="GET">
+				
+				<form action="applist.php" method="GET">
+				<input type='hidden' name='type' value='search'>
 				<input type="text" placeholder="Search.." name="search">
 				</form>
 			</div>

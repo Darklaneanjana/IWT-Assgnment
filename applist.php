@@ -44,6 +44,13 @@ require_once('php/header.php');
                     include 'inc/appBox.php';
                 }
             }
+            else if($_GET["type"]=='search' ){
+                $Srow = getsearch($conn,$_GET['search']);
+                foreach ($Srow as $value) {
+                    $downrow = getappdown($conn,$value["AppID"]);
+                    include 'inc/appBox.php';
+                }
+            }
             
         ?>     
     </div>
