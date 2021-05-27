@@ -35,8 +35,15 @@ require_once('php/header.php');
 </div>
 </form>
 
-<div class="forms signin">
-    <p>Create an account? <a href="signup.php">sign up</a></p>
+
+<div class='forms signin'>
+<?php 
+    if(isset($_GET['tp'])){
+        echo "<p>Create an developer  account? <a href='signupdev.php'>sign up</a></p>";
+    }
+    else {echo "<p>Create an account? <a href='signup.php'>sign up</a></p>";}
+?>
+
 </div>
 
 

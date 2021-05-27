@@ -11,7 +11,7 @@ if (isset($_SESSION["userID"])) {
         echo "<p>Hello there " . $_SESSION["name"] . "</p>";
     }
 } else {
-    header("location:signin.php?error=notLoggedIn");
+    header("location:signin.php?error=notLoggedIn&tp=dev");
     exit();
 }
 ?>

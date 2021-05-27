@@ -9,7 +9,7 @@ $arow = getappinfo($conn,$_GET["app"]);
 $srow = getappss($conn,$_GET["app"]);
 $downrow = getappdown($conn,$_GET["app"]);
 $drow = getappdev($conn,$_GET["app"]);
-
+$_SESSION['app']=$_GET["app"]
 ?>
 <section class="section">
 
@@ -21,9 +21,9 @@ $drow = getappdev($conn,$_GET["app"]);
                 <?php echo "<img class='logo' src='images/Apps/" . $srow['SS'] . ".webp'>"?>
             </div>
 
-            <div style="">
-                <?php echo  $arow['appName']; ?>
-                <p><?php echo $drow['devName']; ?></p>
+            <div class="name">
+                <p class="AppName"><?php echo  $arow['appName']; ?></p>
+                <p class="AppDev"><p><?php echo $drow['devName']; ?></p>
             </div>
             
             <button class="detbut"><a href="#">
@@ -99,12 +99,14 @@ $drow = getappdev($conn,$_GET["app"]);
 <button onclick="myFunction()">Try it</button>
 
 
-
+<!-- <div class="form-group">
+        <textarea class="form-control status-box" rows="3" placeholder="Enter your comment here..."></textarea>
+      </div> -->
 
 
     <div class="comm">
-        <div><h2>Comments</h2></div>
-        <div class="">
+        <div><h1>Comments</h1></div>
+        <div class="comment-area">
 
             <?php  
             if (isset($_SESSION["userID"])){
@@ -112,23 +114,18 @@ $drow = getappdev($conn,$_GET["app"]);
                     <input type='hidden' name='uid' value='".$_SESSION["uid"]."'>
                     <input type='hidden' name='AppID' value='".$_GET["app"]."'>
                     <input type='hidden' name='date' value='". date('Y-m-d H:i:s')."'>
-                    <textarea name='message'></textarea>
-                    <button type='submit' class='combt' name='submitCom'>comment</button>
+                    <div class='form-group'><textarea name='message' class='form-control status-box' rows='3' placeholder='Enter your comment here...'></textarea></div>
+                    <button type='submit' class='combt' name='submitCom'>Comment</button>
                 </form>";
             }else{echo "you need to log in to comment";}
             ?>
         </div>
 
-        <div class="">
+        <div class='comBox'>
             <?php
                 getCom($conn,$_GET["app"]);
             ?>
         </div>
-
-
-
-            <!-- 
-            } -->
 
         
     </div>
@@ -138,7 +135,3 @@ $drow = getappdev($conn,$_GET["app"]);
 <?php
 include_once('php/footer.php');
 ?> 
-<!-- <?php
-                    // date_default_timezone_get('Asia/India');
-                    echo date('Y-m-d H:i:s');
-                ?> -->
