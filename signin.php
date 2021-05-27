@@ -5,7 +5,10 @@ require_once('php/header.php');
 ?>
 
 <section>
-
+<div class="forms fff">
+<h1>Log In</h1>
+    <p>Please fill in this form to Log In.</p>
+    <hr>
 <form action="inc/signin.inc.php" method="POST">
     <input type="text" name="uid" placeholder="email/username..">
     <input type="password" name="pwd" placeholder="password..">
@@ -29,12 +32,12 @@ require_once('php/header.php');
         }
     }
 ?>
+</div>
 </form>
-    <a href="signup.php">sign up</a>
 
-<form action="inc/signin.inc.php" method="POST">
-    <button type="submit" name="submit" >logout</button>
-</form>
+<div class="forms signin">
+    <p>Create an account? <a href="signup.php">sign up</a></p>
+</div>
 
 
 </section>

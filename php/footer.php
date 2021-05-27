@@ -4,21 +4,22 @@
 		<div class="item1"><img src="images/logo.png"  class="flogo"></div>
 
 		<div class="item2">
-			<h4 >OUR PRODUCTS</h4>
+			<h4 >Company</h4>
 			<span class="lil">
-				<a href="#" rel="" title="Aptoide App" target="_blank">App</a><br>
-				<a href="#" rel="" title="Aptoide TV" target="_blank">TV</a><br>
-				<a href="#" rel="" title="AppCoins Wallet" target="_blank">Wallet</a><br>
-				<a href="#" rel="" title="Uploader" target="_blank">Uploader</a><br>
-			<a href="#" rel="" title="Support" target="_blank">Support</a></span></div>
+				<a href="ContactAbout-Us.php" rel=""  target="_blank">About Us</a><br>
+				<a href="#" rel=""  target="_blank">Why Appstore</a><br>
+				<a href="#" rel=""  target="_blank">Careers</a><br>
+				<a href="#" rel=""  target="_blank">Blog</a><br>
+			
+		</span></div>
 
-		<div class="item3"><h4 >OUR PRODUCTS</h4>
+		<div class="item3"><h4 >Services</h4>
 			<span class="lil">
-				<a href="#" rel="" title="Aptoide App" target="_blank">App</a><br>
-				<a href="#" rel="" title="Aptoide TV" target="_blank">TV</a><br>
-				<a href="#" rel="" title="AppCoins Wallet" target="_blank">Wallet</a><br>
-				<a href="#" rel="" title="Uploader" target="_blank">Uploader</a><br>
-				<a href="#" rel="" title="Support" target="_blank">Support</a></span></div> 
+				<a href="devAccount.php" rel=""  target="_blank">For Developers</a><br>
+				<a href="#" rel=""  target="_blank">For Stores</a><br>
+				<a href="#" rel=""  target="_blank">Wallet</a><br>
+				
+			</span></div> 
 
 		<div class="item5">©2021 App Store.com. All rights reserved</div>
 

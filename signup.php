@@ -7,27 +7,18 @@ require_once('php/header.php');
 
 <section>
 
-<div>
-<form action="inc/signup.inc.php" method="POST">
-    <input type="text" name="name" placeholder="name..">
-    <input type="text" name="email" placeholder="email">
-    <input type="text" name="uid" placeholder="u name">
-    <input type="password" name="pwd" placeholder="password">
-    <input type="password" name="pwdrep" placeholder="password">
+<div class="forms fff">
+<h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+<form action="inc/signup.inc.php" method="POST"><br>
+    <input type="text" name="name" placeholder="name.."><br>
+    <input type="text" name="email" placeholder="email"><br>
+    <input type="text" name="uid" placeholder="u name"><br>
+    <input type="password" name="pwd" placeholder="password"><br>
+    <input type="password" name="pwdrep" placeholder="password"><br>
     <button type="submit" name="submit" >signup</button>
 </form>
-</div>
-
-
-
-
-    <a href="signin.php">sign in</a>
-
-<form action="inc/signup.inc.php" method="POST">
-    <button type="submit" name="logout" >logout</button>
-</form>
-
-
 <?php
     if(isset($_GET["error"])){
         if($_GET["error"]=="emptyinput"){
@@ -54,11 +45,18 @@ require_once('php/header.php');
             echo "<p>Sign Up Succesfull!</p>";
         }
     }
-    
-
-
-
 ?>
+</div>
+
+
+<div class="forms signin">
+    <p>Already have an account? <a href="signin.php">Sign in</a>.</p>
+</div>
+
+
+
+
+
 
 
 </section>

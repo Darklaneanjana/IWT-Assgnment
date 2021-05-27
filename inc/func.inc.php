@@ -90,7 +90,8 @@ function loginUser($conn,$name,$pwd){
         }
         else{
             session_start();
-            $_SESSION["userID"] = $uidExixst["uid"];
+            $_SESSION["uid"] = $uidExixst["uid"];
+            $_SESSION["userID"] = $uidExixst["UserID"];
             $_SESSION["name"] = $uidExixst["name"];
             $_SESSION["type"] = "User";
             header("location:../index.php");

@@ -70,19 +70,14 @@ $drow = getappdev($conn,$_GET["app"]);
 <!--                          Rate                             -->
 
     <div class="rate">
-    <div><p>Rating</p></div>
+    <div><h2>Rating</h2></div>
         <div>
 
-                <?php
+                <!-- <?php
                 if (isset($_SESSION["userID"])){
-                    echo "<form method='POST' action='#'>
-                        <input type='hidden' name = 'uid' value=" . $_SESSION["userID"] . ">
-                        <input type='hidden' name = 'date' value='" .date('Y-m-d H:i:s'). "'>
-                        <textarea name='message'></textarea>
-                        <button>Comment</button>
-                        </form>";
+
                 }
-                ?>
+                ?> -->
 
         </div>
     </div>
@@ -90,37 +85,60 @@ $drow = getappdev($conn,$_GET["app"]);
 
 <!--                        Comment                                    -->
 
+<script>
+    function myFunction() {
+
+    }
+</script>
+<div id="myItems">
+</div>
+<p id="demo">Click the button to clone the above items</p>
+<button onclick="myFunction()">Try it</button>
+
+
+<button onclick="myFunction()">Try it</button>
+
+
+
+
+
     <div class="comm">
         <div><h2>Comments</h2></div>
-        <div>
-                <?php
-                    // date_default_timezone_get('Asia/India');
-                    echo date('Y-m-d H:i:s');
-                ?>
+        <div class="">
 
-                <?php   
+            <?php  
+            if (isset($_SESSION["userID"])){
                 echo "<form method='POST' action=  'inc/com.inc.php'>
-                    <input type='hidden' name='uid' value=1>
-                    <input type='hidden' name='AppID' value='1'>
-                    <input type='hidden' name='date' value=". date('Y-m-d H:i:s').">
+                    <input type='hidden' name='uid' value='".$_SESSION["uid"]."'>
+                    <input type='hidden' name='AppID' value='".$_GET["app"]."'>
+                    <input type='hidden' name='date' value='". date('Y-m-d H:i:s')."'>
                     <textarea name='message'></textarea>
-                    <button type='submit' name='submitCom'>comment</button>
+                    <button type='submit' class='combt' name='submitCom'>comment</button>
                 </form>";
-                getCom($conn);
-                ?>
+            }else{echo "you need to log in to comment";}
+            ?>
+        </div>
+
+        <div class="">
+            <?php
+                getCom($conn,$_GET["app"]);
+            ?>
+        </div>
 
 
 
-
-            <!-- if (isset($_SESSION["userID"])){
+            <!-- 
             } -->
 
-
-        </div>
         
     </div>
+
 
 </section>
 <?php
 include_once('php/footer.php');
 ?> 
+<!-- <?php
+                    // date_default_timezone_get('Asia/India');
+                    echo date('Y-m-d H:i:s');
+                ?> -->

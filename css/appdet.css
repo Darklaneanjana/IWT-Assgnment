@@ -53,6 +53,7 @@
   margin-right: 10%;
   margin-left: 20%;
   cursor: pointer;
+  margin-bottom: 60px;
 }
 button a{
   text-decoration: none;
@@ -65,23 +66,57 @@ button a{
 }
 
 .comm{
-
+  position: relative;
 }
 
 
 
+.comBox{
+  background: #eee;
+  border: 1px solid #ddd;
+  width: 90%;
+  padding: 2px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  position: relative;
 
+}
 
 textarea{
-  width: 400px;
-  width: 80px;
-  background-color: #999;
+  width: 80%;
+  background-color: #ccc;
+  border-radius: 4px;
   resize: none;
+  position: relative;
 }
 
 form button{
   width: 100px;
   height: 30px;
-  background-color: black;
+  background-color: #222;
   color: #fff;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+  .edit{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #333;
+  border: none;
+  background-color: #ddd;
+}
+
+.delete{
+  position: absolute;
+  top: 0px;
+  right: 100px;
+  color: #333;
+  border: none;
+  background-color: #ddd;
+}
+
+.combt{
+  bo
 }
