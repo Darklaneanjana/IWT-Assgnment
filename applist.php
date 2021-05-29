@@ -50,6 +50,7 @@ require_once('php/header.php');
                     $downrow = getappdown($conn,$value["AppID"]);
                     include 'inc/appBox.php';
                 }
+                echo $_GET['search'];
             }
             
         ?>     
