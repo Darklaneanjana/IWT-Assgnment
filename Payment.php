@@ -31,16 +31,18 @@ if (isset($_SESSION["userID"])) {
     echo $_SESSION["name"];
 ?>
 
-
-
-hello this is payment
-
+<<?php 
 
 
 
+echo "hello this is payment";
 
 
 
+
+
+
+?>
 
 <?php
 require_once('php/footer.php');
