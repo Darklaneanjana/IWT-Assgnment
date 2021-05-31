@@ -46,7 +46,7 @@ if (isset($_SESSION["userID"])) {
         $devName = $_POST['devName'];
         $email = $_POST['email'];
 
-        $sql = "UPDATE 'dev' SET dev(devName, email) WHERE devUID='$currentDeveloper'
+        $sql = "UPDATE 'dev' SET devName, email WHERE devUID='$currentDeveloper'
         VALUES('$devName','$email');";
     }
     ?>

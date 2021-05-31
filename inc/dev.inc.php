@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $buildNo = $_POST['buildNo'];
     $appCat = $_POST['appCat'];
 
-    $result = mysqli_query($conn, "SELECT 'catID' from 'category' where catName='$appCat';");
+    $result = mysqli_query($conn, "SELECT catID from 'category' where catName='$appCat';");
     $categoryID = mysqli_fetch_array($result);
     $catID = $categoryID[0];
 
