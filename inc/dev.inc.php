@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $buildNo = $_POST['buildNo'];
     $appCat = $_POST['appCat'];
 
-    $result = mysqli_query($conn, "SELECT catID from category where catName='$appCat';");
+    $result = mysqli_query($conn, "SELECT catID from category where catName='".$appCat."';");
     $categoryID = mysqli_fetch_array($result);
     $catID = $categoryID[0];
 
@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     }
     // $sql = "INSERT INTO app(AppID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
     // $sql = "insert into users  (name,email,uid,userPsw) value('" . $name. "','" . $email. "','" . $uid. "','" . $pwd. "');"; 
-    $sql = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',1,1,2,'g');";
+    $sql = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',1,1'".$fileSize. ",'".$appCat. "');";
 
 $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "','".$appPrice. "','".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",'".$fileSize. "','".$appCat. "');";
 mysqli_query($conn, $sql);
