@@ -6,7 +6,7 @@
 		<div class="item2">
 			<h4 >Company</h4>
 			<span class="lil">
-				<a href="ContactAbout-Us.php" rel=""  target="_blank">About Us</a><br>
+				<a href="Contact.php" rel=""  target="_blank">About Us</a><br>
 				<a href="#" rel=""  target="_blank">Why Appstore</a><br>
 				<a href="#" rel=""  target="_blank">Careers</a><br>
 				<a href="#" rel=""  target="_blank">Blog</a><br>
