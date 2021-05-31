@@ -31,19 +31,18 @@ if (isset($_SESSION["userID"])) {
     echo $_SESSION["name"];
 ?>
 
-<<?php 
+<body>
+    <h2>Payment</h2>
+    <h3>Accepted Cards</h3>
+    <form action="process.php" method="POST">
+     <lable>credit card number</lable>
+    <input type="text" name="cardnum">
+    <label>EXP Month</label> 
+    <input type="text"name="expDate">
 
 
-
-echo "hello this is payment";
-
-
-
-
-
-
-?>
-
+    </form>
+</body>
 <?php
 require_once('php/footer.php');
 ?> 
