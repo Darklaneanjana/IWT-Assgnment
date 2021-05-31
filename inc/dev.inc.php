@@ -1,19 +1,19 @@
 <?php
 session_start();
-require_once 'dbh.inc.php';
+require_once('dbh.inc.php');
 
 
 
 if (isset($_POST['submit'])) {
 
-    $userID = $_SESSION["userID"]
+    $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
     $Description = $_POST['Description'];
     $appType = $_POST['appType'];
     $buildNo = $_POST['buildNo'];
     $appCat = $_POST['appCat'];
 
-    $result = mysqli_query($conn, "SELECT catID from category where catName='$appCat';");
+    $result = mysqli_query($conn, "SELECT 'catID' from 'category' where catName='$appCat';");
     $categoryID = mysqli_fetch_array($result);
     $catID = $categoryID[0];
 
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-//$sql = "INSERT INTO app(appID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
-//VALUES('','$appName','$Description','$price','$appType','$buildNo','$userID','$catID','$fileSize','$appCat');";
+$sql = "INSERT INTO app(appID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
+VALUES('','$appName','$Description','$price','$appType','$buildNo','$userID','$catID','$fileSize','$appCat');";
 
 

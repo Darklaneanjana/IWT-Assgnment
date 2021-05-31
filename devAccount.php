@@ -31,9 +31,9 @@ if (isset($_SESSION["userID"])) {
 
     if ($gotResult) {
         if (mysqli_num_rows($gotResult)> 0); {
-            while ($row = msqli_fetch_array($gotResult)) {
+            while ($row = mysqli_fetch_array($gotResult)) {
                 ?>
-                 <input type="text" name="userName" value="<?php echo $row['devName']; ?>" >
+                 <input type="text" name="devName" value="<?php echo $row['devName']; ?>" >
                 <input type="text" name="email" value="<?php echo $row['email']; ?>">
                 <input type="submit" name="edit" value="Edit" >
                 <a href="devAccount.php">Cancel</a>
@@ -41,7 +41,16 @@ if (isset($_SESSION["userID"])) {
             }
         }
     }
+    if (isset($_POST['edit'])){
+
+        $devName = $_POST['devName'];
+        $email = $_POST['email'];
+
+        $sql = "UPDATE 'dev' SET dev(devName, email) WHERE devUID='$currentDeveloper'
+        VALUES('$devName','$email');";
+    }
     ?>
+    
        
     </form>
    
