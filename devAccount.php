@@ -15,17 +15,23 @@ if (isset($_SESSION["userID"])) {
     header("location:signin.php?error=notLoggedIn&tp=dev");
     exit();
 }
+echo $_SESSION["userID"];
+echo $_SESSION["type"];
 ?>
 
 <body>
-    <h1>Edit Profile</h1>
+    <center>
+<div class="forms fff">
+    <h3>Edit Profile</h3>
+    <hr>
     <form name="editProfile" method="post">
-    <?php
+   
+   
+   <?php
     require_once('inc/dbh.inc.php');
 
-
-    $currentDeveloper=$_SESSION["userID"];
-    $sql="SELECT * FROM dev WHERE devUID='$currentDeveloper' ";
+    $currentDeveloper=$_SESSION["userUID"];
+    $sql="SELECT * FROM dev WHERE devUID='$currentDeveloper'; ";
 
     $gotResult=mysqli_query($conn,$sql);
 
@@ -33,10 +39,10 @@ if (isset($_SESSION["userID"])) {
         if (mysqli_num_rows($gotResult)> 0); {
             while ($row = mysqli_fetch_array($gotResult)) {
                 ?>
-                 <input type="text" name="devName" value="<?php echo $row['devName']; ?>" >
-                <input type="text" name="email" value="<?php echo $row['email']; ?>">
+                 <input type="text" name="devName" value="<?php echo $row['devName']; ?>" ><br>
+                <input type="text" name="email" value="<?php echo $row['email']; ?>"><br>
                 <input type="submit" name="edit" value="Edit" >
-                <a href="devAccount.php">Cancel</a>
+                <button><a href="devAccount.php">Cancel</a></button>
                 <?php
             }
         }
@@ -49,25 +55,60 @@ if (isset($_SESSION["userID"])) {
         $sql = "UPDATE 'dev' SET devName='$devName', email='$email' WHERE devUID='$currentDeveloper';";
     }
     ?>
-    
-       
-    </form>
    
-
+    </div>  
+    </form>
+    
+   <div class='upl'>
+    <h3>Upload App</h3>
+    <hr>
     <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
             <input type="text" name="appName" placeholder="App Name" required><br>
             <input type="text" name="Description" placeholder="App Description" required><br>
+            <input type="text" name="appPrice" placeholder="App Price" required><br>
             <input type="text" name="appType" placeholder="App Type" required><br>
             <input type="text" name="buildNo" placeholder="BuildNo" required><br>
             <input type="text" name="appCat" placeholder="App Category" required><br>
             <input type="file" name="appSS" required><br>
             <input type="file" name="appFile" required><br>
             <input type="submit" name="submit" value="Upload">
-            <a href="devAccount.php">Cancel</a>
+            <button><a href="devAccount.php">Cancel</a></button>
     </form>
+</div>
+<div class='upl'>
+    <h3>Update App</h3>
+    <hr>
+    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="appName" placeholder="App Name" required><br>
+            <input type="text" name="Description" placeholder="App Description" required><br>
 
+            <input type="text" name="appType" placeholder="App Type" required><br>
+            <input type="text" name="buildNo" placeholder="BuildNo" required><br>
+            <input type="text" name="appCat" placeholder="App Category" required><br>
+            <input type="file" name="appSS" required><br>
+            <input type="file" name="appFile" required><br>
+            <input type="submit" name="submit" value="Upload">
+            <button><a href="devAccount.php">Cancel</a></button>
+    </form>
+</div>
+<div class='upl'>
+    <h3>Remove App</h3>
+    <hr>
+    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="appName" placeholder="App Name" required><br>
+            <input type="text" name="Description" placeholder="App Description" required><br>
+           
+            <input type="text" name="appType" placeholder="App Type" required><br>
+            <input type="text" name="buildNo" placeholder="BuildNo" required><br>
+            <input type="text" name="appCat" placeholder="App Category" required><br>
+            <input type="file" name="appSS" required><br>
+            <input type="file" name="appFile" required><br>
+            <input type="submit" name="submit" value="Upload">
+            <button><a href="devAccount.php">Cancel</a></button>
+    </form>
+</div>
     
-
+</center>
 </body>
 
 <?php

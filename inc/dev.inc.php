@@ -1,19 +1,18 @@
 <?php
-session_start();
 require_once('dbh.inc.php');
 
 
 
 if (isset($_POST['submit'])) {
-
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
     $Description = $_POST['Description'];
+    $appPrice = $_POST['appPrice'];
     $appType = $_POST['appType'];
     $buildNo = $_POST['buildNo'];
     $appCat = $_POST['appCat'];
 
-    $result = mysqli_query($conn, "SELECT catID from 'category' where catName='$appCat';");
+    $result = mysqli_query($conn, "SELECT catID from category where catName='$appCat';");
     $categoryID = mysqli_fetch_array($result);
     $catID = $categoryID[0];
 
@@ -76,9 +75,13 @@ if (isset($_POST['submit'])) {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
+    // $sql = "INSERT INTO app(AppID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
+    // $sql = "insert into users  (name,email,uid,userPsw) value('" . $name. "','" . $email. "','" . $uid. "','" . $pwd. "');"; 
+    $sql = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',1,1,2,'g');";
+
+$sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "','".$appPrice. "','".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",'".$fileSize. "','".$appCat. "');";
+mysqli_query($conn, $sql);
+mysqli_query($conn, $sql1);
+
 }
-
-$sql = "INSERT INTO app(appID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
-VALUES('','$appName','$Description','$price','$appType','$buildNo','$userID','$catID','$fileSize','$appCat');";
-
 

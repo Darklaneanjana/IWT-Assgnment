@@ -107,7 +107,8 @@ function loginUser($conn,$name,$pwd){
         }
         else{
             session_start();
-            $_SESSION["userID"] = $uidExixst["devUID"];
+            $_SESSION["userID"] = $uidExixst["devID"];
+            $_SESSION["userUID"] = $uidExixst["devUID"];
             $_SESSION["name"] = $uidExixst["devName"];
             $_SESSION["type"] = "Dev";
             header("location:../devAccount.php");
