@@ -17,6 +17,15 @@ if (isset($_SESSION["userID"])) {
 ?>
 
 <body>
+    <h1>Edit Profile</h1>
+    <form name="editProfile" method="post">
+        <input type="text" name="userName" placeholder="User Name" >
+        <input type="text" name="email" placeholder="Email" >
+        <input type="text" name="password" placeholder="Password" >
+        <input type="submit" name="edit" value="Edit" >
+        <a href="devAccount.php">Cancel</a>
+
+
 
     <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
             <input type="text" name="appName" placeholder="App Name" required><br>
@@ -30,6 +39,7 @@ if (isset($_SESSION["userID"])) {
             <a href="devAccount.php">Cancel</a>
     </form>
 
+    
 
 </body>
 
