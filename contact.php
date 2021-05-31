@@ -1,18 +1,15 @@
-require_once 'dbh.inc.php';
 
-<html>
-<head>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="../css/common.css">
     <script src="../js/contact.js"></script>
     <title>
         Contact_us
     </title>
-</head>
+
 <body>
     <script language = "javascript" type = "text/javascript">
         <!--
-           document.write("Hello World!")
+        //    document.write("Hello World!")
         //-->
      </script>  
 <?php
@@ -55,6 +52,7 @@ require_once('php/header.php');
         </form>
 
       </div>
+</div>
 
 
 
@@ -65,6 +63,3 @@ require_once('php/header.php');
 <?php
 require_once('php/footer.php');
 ?> 
-</body>
-
-</html>

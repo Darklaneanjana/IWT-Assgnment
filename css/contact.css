@@ -6,33 +6,38 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: "Josefin Sans", sans-serif;
+  
 }
 
 
 body {
-  background: url(../image/back.jpg) no-repeat;
-  min-height: 100vh;
+  background: url(image/back.jpg) no-repeat;
+  /* background: red; */
   background-size: cover;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   align-items: center;
 }
 
 .contact-section{
+  font-family: "Josefin Sans", sans-serif;
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
   align-items: center;
+  height:600px;
+  position: relative;
 }
 
 .contact-info{
   color: #000000;
-  max-width: 500px;
+  /* max-width: 500px; */
+  padding: 10% 0px 0px 0px;
   line-height: 65px;
   padding-left: 50px;
   font-size: 20px;
   margin: 30px 50px;
+  position: absolute;
 }
 
 .contact-info i{
@@ -42,6 +47,7 @@ body {
 
 .wrapper {
   position: absolute;
+  background: red;
   top: 50%;
   left: 70%;
   transform: translate(-50%, -50%);

@@ -136,6 +136,7 @@ color: #4B4B4B;
 }
  .footer   {
 	background-color: aqua;
+  position: relative;
   margin: 0px;
   padding: 0px;
   border: 0px;
