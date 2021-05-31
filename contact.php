@@ -30,7 +30,7 @@ require_once('php/header.php');
         <div id="error_message">
            
         </div>
-        <form action="connect.php" method="POST"  id="myform" onsubmit = "return validate();">
+        <form action="inc/cont.inc.php" method="POST"  id="myform" onsubmit = "return validate();">
           <div class="input_field">
               <input type="text" name="Name" placeholder="Name" id="name">
           </div>

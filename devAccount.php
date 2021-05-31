@@ -3,6 +3,7 @@
 <?php
 require_once('php/header.php');
 
+
 if (isset($_SESSION["userID"])) {
     if ($_SESSION["type"] !== "Dev") {
         header("location:index.php?error=notDev");
@@ -19,13 +20,31 @@ if (isset($_SESSION["userID"])) {
 <body>
     <h1>Edit Profile</h1>
     <form name="editProfile" method="post">
-        <input type="text" name="userName" placeholder="User Name" >
-        <input type="text" name="email" placeholder="Email" >
-        <input type="text" name="password" placeholder="Password" >
-        <input type="submit" name="edit" value="Edit" >
-        <a href="devAccount.php">Cancel</a>
+    <?php
+    require_once('inc/dbh.inc.php');
 
 
+    $currentDeveloper=$_SESSION["userID"];
+    $sql="SELECT * FROM dev WHERE devUID='$currentDeveloper' ";
+
+    $gotResult=mysqli_query($conn,$sql);
+
+    if ($gotResult) {
+        if (mysqli_num_rows($gotResult)> 0); {
+            while ($row = msqli_fetch_array($gotResult)) {
+                ?>
+                 <input type="text" name="userName" value="<?php echo $row['devName']; ?>" >
+                <input type="text" name="email" value="<?php echo $row['email']; ?>">
+                <input type="submit" name="edit" value="Edit" >
+                <a href="devAccount.php">Cancel</a>
+                <?php
+            }
+        }
+    }
+    ?>
+       
+    </form>
+   
 
     <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
             <input type="text" name="appName" placeholder="App Name" required><br>
