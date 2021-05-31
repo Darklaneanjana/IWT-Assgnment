@@ -7,7 +7,7 @@
 			<h4 >Company</h4>
 			<span class="lil">
 				<a href="Contact.php" rel=""  target="_blank">Contact Us</a><br>
-				<a href="About.php" rel=""  target="_blank">About Us</a><br>
+				<a href="about_us.php" rel=""  target="_blank">About Us</a><br>
 				<a href="#" rel=""  target="_blank">Why Appstore</a><br>
 				<a href="#" rel=""  target="_blank">Careers</a><br>
 				<a href="#" rel=""  target="_blank">Blog</a><br>
