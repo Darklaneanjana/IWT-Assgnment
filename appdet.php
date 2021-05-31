@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/appdet.css">
 <link rel="stylesheet" href="css/common.css">
+<script src="js/App-Details.js"></script>
 <?php
 require_once('php/header.php');
 require_once('inc/appdet.inc.php');
@@ -87,9 +88,21 @@ $_SESSION['app']=$_GET["app"]
 
 <script>
     function myFunction() {
-
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
     }
+  }
+
 </script>
+    hello how are you
+    <button onclick="myFunction()">Try it</button>
+                    <div id='myDIV'>
+                    This is my DIV element.
+                    </div>
+
 <div id="myItems">
 </div>
 <p id="demo">Click the button to clone the above items</p>
@@ -118,18 +131,22 @@ $_SESSION['app']=$_GET["app"]
                     <button type='submit' class='combt' name='submitCom'>Comment</button>
                 </form>";
             }else{echo "you need to log in to comment";}
+            
             ?>
         </div>
 
         <div class='comBox'>
             <?php
                 getCom($conn,$_GET["app"]);
-            ?>
-        </div>
+                
 
+            ?>
+            
+        </div>
+        
         
     </div>
-
+    hello
 
 </section>
 <?php
