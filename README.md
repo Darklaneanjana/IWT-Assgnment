@@ -6,4 +6,4 @@ Anjana: HomePage,App Details
 Kalana: Search, Category 
 Tharushi: Sign in, Sign Up, Dev Sign Up
 Sahan: Dev Account, Payment
-Pinsara: Contact/About Us, User Profile
+Pinsara: Contact,About Us,

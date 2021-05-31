@@ -1,7 +1,8 @@
 
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="../css/common.css">
-    <script src="../js/contact.js"></script>
+    <script src="js/contact_us.js"></script>
     <title>
         Contact_us
     </title>

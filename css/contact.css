@@ -11,7 +11,7 @@
 
 
 body {
-  background: url(../images/back.jpg) no-repeat;
+  background: url(../images/brown.jpg) no-repeat;
   /* background: red; */
   background-size: cover;
   /* display: flex;
@@ -46,8 +46,7 @@ body {
 }
 
 .wrapper {
-  position: absolute;
-  background: red;
+  position: absolute;    
   top: 50%;
   left: 70%;
   transform: translate(-50%, -50%);
