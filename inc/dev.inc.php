@@ -89,9 +89,18 @@ if (isset($_POST['submit'])) {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
+
     $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",".round($fileSize/(1024*1024)). ",'".$appCat. "');";
     mysqli_query($conn, $sql1);
-    $sql2 = "INSERT INTO appss(AppID, SS) VALUES (1,'".$appSSnewName."');";
+    
+
+    $sql4 = mysqli_query($conn,"select AppID from app where appName= '".$appName."'; ");
+    $row4 = mysqli_fetch_array($sql4);
+
+    $sql3 = "INSERT INTO appdown(AppID, downloads) VALUES (".$row4['AppID'].",0);";
+    mysqli_query($conn, $sql3);
+
+    $sql2 = "INSERT INTO appss(AppID, SS) VALUES (".$row4['AppID'].",'".$appSSnewName."');";
     mysqli_query($conn, $sql2);
 
     header("Location: ../devAccount.php?uploadsuccessfull");

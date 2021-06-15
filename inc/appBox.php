@@ -1,7 +1,8 @@
 <?php
-$sql = "SELECT * FROM appss WHERE 1";
+$sql = mysqli_query($conn,"SELECT * FROM appss WHERE AppID=".$value["AppID"].";");
+$rowss = mysqli_fetch_array($sql);
 echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
-                                <img src='images/Apps/1.webp'>
+                                <img src='images/Apps/".$rowss['SS']."'>
                                 <p class='apptitle'><b>" . $value["appName"] ."</b></p>
                                 <div class='appdet'>
                                 <p style='float: left;'>" . $downrow["downloads"] . "</p>
