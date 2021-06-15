@@ -52,7 +52,7 @@ echo $_SESSION["type"];
                     $devName = $_POST['devName'];
                     $email = $_POST['email'];
 
-                    $sql = "UPDATE 'dev' SET devName='$devName', email='$email' WHERE devUID='$currentDeveloper';";
+                    $sql = "UPDATE 'dev' SET devName='" . $devName . "', email='" . $email . "' WHERE devUID='" . $currentDeveloper . "';";
                     mysqli_query($conn, $sql);
                 }
                 ?>
