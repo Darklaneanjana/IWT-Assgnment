@@ -1,9 +1,12 @@
 <?php
+session_start();
 require_once('dbh.inc.php');
 
 
 
 if (isset($_POST['submit'])) {
+    echo $_SESSION["userID"];
+    // exit();
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
     $Description = $_POST['Description'];
@@ -11,10 +14,11 @@ if (isset($_POST['submit'])) {
     $appType = $_POST['appType'];
     $buildNo = $_POST['buildNo'];
     $appCat = $_POST['appCat'];
+    $catID = $_POST['category'];
 
-    $result = mysqli_query($conn, "SELECT catID from category where catName='".$appCat."';");
-    $categoryID = mysqli_fetch_array($result);
-    $catID = $categoryID[0];
+    // $result = mysqli_query($conn, "SELECT catID from category where catName='".$appCat."';");
+    // $categoryID = mysqli_fetch_array($result);
+    // $catID = $categoryID[0];
 
     $appSS = $_FILES['appSS'];
 
@@ -65,7 +69,7 @@ if (isset($_POST['submit'])) {
                 $fileNewName = uniqid('', true) . '.' . $fileActualExt;
                 $fileDestination = '../APP/' . $fileNewName;
                 move_uploaded_file($fileTmpName, $fileDestination);
-                header("Location: ../devAccount.php?uploadsuccessfull");
+                // 
             } else {
                 echo "Your file is too big..!!!";
             }
@@ -75,13 +79,9 @@ if (isset($_POST['submit'])) {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
-    // $sql = "INSERT INTO app(AppID, appName, Description, price, appType, buildNo, devID, catID, size, appCat)
-    // $sql = "insert into users  (name,email,uid,userPsw) value('" . $name. "','" . $email. "','" . $uid. "','" . $pwd. "');"; 
-    $sql = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',1,1'".$fileSize. ",'".$appCat. "');";
-
-$sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "','".$appPrice. "','".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",'".$fileSize. "','".$appCat. "');";
-mysqli_query($conn, $sql);
-mysqli_query($conn, $sql1);
-
+    $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",".round($fileSize/(1024*1024)). ",'".$appCat. "');";
+    mysqli_query($conn, $sql1);
+    header("Location: ../devAccount.php?uploadsuccessfull");
+    // exit();
 }
 

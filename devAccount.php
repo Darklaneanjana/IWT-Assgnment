@@ -2,7 +2,7 @@
 
 <?php
 require_once('php/header.php');
-
+require_once('inc/dbh.inc.php');
 
 if (isset($_SESSION["userID"])) {
     if ($_SESSION["type"] !== "Dev") {
@@ -38,12 +38,12 @@ echo $_SESSION["type"];
     if ($gotResult) {
         if (mysqli_num_rows($gotResult)> 0); {
             while ($row = mysqli_fetch_array($gotResult)) {
-                ?>
+    ?>
                  <input type="text" name="devName" value="<?php echo $row['devName']; ?>" ><br>
                 <input type="text" name="email" value="<?php echo $row['email']; ?>"><br>
                 <input type="submit" name="edit" value="Edit" >
                 <button><a href="devAccount.php">Cancel</a></button>
-                <?php
+    <?php
             }
         }
     }
@@ -66,14 +66,38 @@ echo $_SESSION["type"];
             <input type="text" name="appName" placeholder="App Name" required><br>
             <input type="text" name="Description" placeholder="App Description" required><br>
             <input type="text" name="appPrice" placeholder="App Price" required><br>
-            <input type="text" name="appType" placeholder="App Type" required><br>
             <input type="text" name="buildNo" placeholder="BuildNo" required><br>
-            <input type="text" name="appCat" placeholder="App Category" required><br>
+            <label for="appType">Paid or Free:</label>
+            <select name="appType" id="appType">
+                <option value="p" >Paid</option>
+                <option value="f" >Free</option>
+            </select><br>
+            <label for="appCat">App or Game:</label>
+            <select name="appCat" id="appCat">
+                <option value="A" >App</option>
+                <option value="G" >Game</option>
+            </select>
+            <br><label for="category">categorye</label>
+            <select name="category" id="category">
+                <?php
+                    $sqlc = mysqli_query($conn, "SELECT catID,catName from category;");;
+
+                    while($rowc=mysqli_fetch_array($sqlc)){  
+                        // <option value="p" >Paid</option>
+                            echo "<option value='".$rowc['catID']."'>  
+                                ".$rowc['catName']."
+                            </option>";
+                        }  
+                ?>
+            </select><br>
+            <label for="appSS">Image</label>
             <input type="file" name="appSS" required><br>
+            <label for="appSS">Apk File</label>
             <input type="file" name="appFile" required><br>
             <input type="submit" name="submit" value="Upload">
             <button><a href="devAccount.php">Cancel</a></button>
     </form>
+
 </div>
 <div class='upl'>
     <h3>Update App</h3>
