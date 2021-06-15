@@ -1,4 +1,5 @@
 <?php
+$sql = "SELECT * FROM appss WHERE 1";
 echo "<a href=appdet.php?app=" . $value["AppID"] . "><div class='appbox'>   
                                 <img src='images/Apps/1.webp'>
                                 <p class='apptitle'><b>" . $value["appName"] ."</b></p>

@@ -92,7 +92,7 @@ echo $_SESSION["type"];
             </select><br>
             <label for="appSS">Image</label>
             <input type="file" name="appSS" required><br>
-            <label for="appSS">Apk File</label>
+            <label for="appFile">Apk File</label>
             <input type="file" name="appFile" required><br>
             <input type="submit" name="submit" value="Upload">
             <button><a href="devAccount.php">Cancel</a></button>

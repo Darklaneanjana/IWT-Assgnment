@@ -20,8 +20,10 @@ if (isset($_POST['submit'])) {
     // $categoryID = mysqli_fetch_array($result);
     // $catID = $categoryID[0];
 
-    $appSS = $_FILES['appSS'];
 
+
+
+    $appSS = $_FILES['appSS'];
     $appSSname = $_FILES['appSS']['name'];
     $appSStmpName = $_FILES['appSS']['tmp_name'];
     $appSSsize = $_FILES['appSS']['size'];
@@ -49,7 +51,15 @@ if (isset($_POST['submit'])) {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
+ 
+// echo $appSSnewName;
+// exit();
 
+
+    // while (true) {
+    //     $filename = uniqid('MyApp', true) . '.pdf';
+    //     if (!file_exists(sys_get_temp_dir() . $filename)) break;
+    //    }
     $file = $_FILES['appFile'];
 
     $fileName = $_FILES['appFile']['name'];
@@ -81,6 +91,9 @@ if (isset($_POST['submit'])) {
     }
     $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, devID, catID, size, appCat) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',".$userID. ",".$catID. ",".round($fileSize/(1024*1024)). ",'".$appCat. "');";
     mysqli_query($conn, $sql1);
+    $sql2 = "INSERT INTO appss(AppID, SS) VALUES (1,'".$appSSnewName."');";
+    mysqli_query($conn, $sql2);
+
     header("Location: ../devAccount.php?uploadsuccessfull");
     // exit();
 }
