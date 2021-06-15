@@ -19,7 +19,7 @@ $_SESSION['app']=$_GET["app"]
         <div class="dettop">
 
             <div style="float: left;position: relative;">
-                <?php echo "<img class='logo' src='images/Apps/" . $srow['SS'] . ".webp'>"?>
+                <?php echo "<img class='logo' src='images/Apps/" . $srow['SS'] . "'>"?>
             </div>
 
             <div class="name">
@@ -86,7 +86,7 @@ $_SESSION['app']=$_GET["app"]
 
 <!--                        Comment                                    -->
 
-<script>
+<!-- <script>
     function myFunction() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
@@ -109,7 +109,7 @@ $_SESSION['app']=$_GET["app"]
 <button onclick="myFunction()">Try it</button>
 
 
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction()">Try it</button> -->
 
 
 <!-- <div class="form-group">
@@ -122,7 +122,7 @@ $_SESSION['app']=$_GET["app"]
         <div class="comment-area">
 
             <?php  
-            if (isset($_SESSION["userID"])){
+            if (isset($_SESSION["uid"])){
                 echo "<form method='POST' action=  'inc/com.inc.php'>
                     <input type='hidden' name='uid' value='".$_SESSION["uid"]."'>
                     <input type='hidden' name='AppID' value='".$_GET["app"]."'>
@@ -146,7 +146,7 @@ $_SESSION['app']=$_GET["app"]
         
         
     </div>
-    hello
+
 
 </section>
 <?php

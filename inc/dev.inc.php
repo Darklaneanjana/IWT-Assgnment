@@ -103,6 +103,9 @@ if (isset($_POST['submit'])) {
     $sql2 = "INSERT INTO appss(AppID, SS) VALUES (".$row4['AppID'].",'".$appSSnewName."');";
     mysqli_query($conn, $sql2);
 
+    $sql5 = "INSERT INTO appdev(AppID, devID) VALUES (".$row4['AppID'].",'".$_SESSION["userID"]."');";
+    mysqli_query($conn, $sql5);
+
     header("Location: ../devAccount.php?uploadsuccessfull");
     // exit();
 }
