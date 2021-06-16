@@ -2,6 +2,29 @@
 session_start();
 require_once('dbh.inc.php');
 
+if(isset($_POST["remove"])){
+    echo $_POST["selectAP"];
+    // exit();
+    $sql1 = "delete  from appdown where AppID = ".$_POST["selectAP"].";";
+    mysqli_query($conn, $sql1);
+
+    $sql2 = "delete  from appss where AppID = ".$_POST["selectAP"].";";
+    mysqli_query($conn, $sql2);
+
+    $sql3 = "delete  from appdev where AppID = ".$_POST["selectAP"].";";
+    mysqli_query($conn, $sql3);
+
+    $sql4 = "delete  from comment where AppID = ".$_POST["selectAP"].";";
+    mysqli_query($conn, $sql4);
+
+    $sql5 = "delete  from app where AppID = ".$_POST["selectAP"].";";
+    mysqli_query($conn, $sql5);
+
+    header("Location: ../devAccount.php");
+
+    exit();
+    
+}
 
 
 if ($_GET['tp']=='upl') {

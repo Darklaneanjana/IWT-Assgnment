@@ -107,7 +107,7 @@ if (isset($_SESSION["userID"])) {
   
             <select name="selectAP" id="selectAP">
                     <?php
-                    $sqla = mysqli_query($conn, "SELECT * from app;");
+                    $sqla = mysqli_query($conn, "SELECT app.* from app INNER JOIN appdev on app.AppID = appdev.AppID where devID =".$_SESSION["userID"].";");
                     while ($rowa = mysqli_fetch_array($sqla)) {
                         echo "<option value='" . $rowa['AppID'] . "'>  
                                 " . $rowa['appName'] . "
@@ -122,6 +122,9 @@ if (isset($_SESSION["userID"])) {
                 if(isset($_POST["selectAP"])){
                     $sqla = mysqli_query($conn, "SELECT * from app where AppID = ".$_POST["selectAP"].";");
                     $rowa = mysqli_fetch_array($sqla);
+
+
+                    
                     
                 }
             ?>
@@ -146,10 +149,10 @@ if (isset($_SESSION["userID"])) {
 <div class='del'>
     <h3>Remove App</h3>
     <hr>
-    <form  action="inc/dev.inc.php?tp=upl" method="post">
+    <form  action="inc/dev.inc.php" method="post">
     <select name="selectAP" id="selectAP">
                     <?php
-                    $sqla = mysqli_query($conn, "SELECT * from app;");
+                    $sqla = mysqli_query($conn, "SELECT app.appName,appdev.AppID from app INNER JOIN appdev on app.AppID = appdev.AppID where devID =".$_SESSION["userID"].";");
                     while ($rowa = mysqli_fetch_array($sqla)) {
                         echo "<option value='" . $rowa['AppID'] . "'>  
                                 " . $rowa['appName'] . "
@@ -157,13 +160,12 @@ if (isset($_SESSION["userID"])) {
                     }
                     ?>
                 </select>
-        <input type="text" name="appName" placeholder="App Name" required><br>
-
-        <button><a href="devAccount.php">Cancel</a></button>
+        <button type='submit' name='remove'>Delete APP</button>
     </form>
 </div>
 
-    </center>
+    
+</center>
 
 <?php
 require_once('php/footer.php');
