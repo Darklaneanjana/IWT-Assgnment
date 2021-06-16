@@ -38,18 +38,17 @@ $cvv = $_POST['cvvNum'];
 $exp = $_POST['Exyear'];
 
 
-$query ="INSERT INTO payment(card_number,exp_month,cvv,exp_year)VALUES('{$card}','{$exp}','{$cvv}','{$exp}')";
+$query ="INSERT INTO payment_details(card_number,exp_month,cvv,exp_year)VALUES('$card','$exp','$cvv','$exp')";
 
 
-$result_set = mysqli_query($connection, $query);
+$result_set = mysqli_query($conn,$query);
 
 
 if($result_set){
-	echo"add";
-}else{
-	echo"err";
-
-
+	echo"add card details successfully";
+}
+else{
+	echo"error";
 }
 }
 ?>
@@ -58,12 +57,10 @@ if($result_set){
 
  
    <body>
+    <fieldset>
    <center>
     <h1>Payment</h1><br>
     <h3>Accepted Cards</h3>
-
-
-
     <form action="Payment.php" method="post">
 	
      <label>Card Number</label>
@@ -72,9 +69,9 @@ if($result_set){
     <label>EXP Month</label> 
     <input type="text"name="expDate">
     <br><br>
-    <label>CVV</label>
-   <input type="text" name="cvvNum">
-   <br><br>
+      <label>CVV</label>
+    <input type="text" name="cvvNum">
+    <br><br>
     <label>EXP Year</label>
     <input type="text" name="Exyear">
     <br><br>
@@ -82,7 +79,7 @@ if($result_set){
 	<input type = "submit" value ="~-submit-~" name="submit">
     </form>
 </center>
-
+</fieldset>
 
 
 
