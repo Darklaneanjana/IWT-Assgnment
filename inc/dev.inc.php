@@ -4,7 +4,7 @@ require_once('dbh.inc.php');
 
 
 
-if (isset($_POST['submit'])) {
+if ($_GET['tp']=='upl') {
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
     $Description = $_POST['Description'];
@@ -93,7 +93,27 @@ if (isset($_POST['submit'])) {
 
 
 
-if (isset($_POST['ffff'])) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if ($_GET['tp']=='upd') {
 
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];

@@ -54,10 +54,34 @@ if (isset($_SESSION["userID"])) {
 </div>
         
 
-<div class='upl'>
+
+
+
+
+
+<div class='upd'>
     <h3>Upload App</h3>
     <hr>
-    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+
+
+    
+<form name="editProfile" method="post" action="devAccount.php">
+    <label for="selectAP">Select App</label>
+                <select name="SelectAP" id="Select">
+                    <?php
+                    $sqlc = mysqli_query($conn, "SELECT * from app;");
+                    while ($rowc = mysqli_fetch_array($sqlc)) {
+                        echo "<option value='" . $rowc['AppID'] . "'>  
+                                " . $rowc['appName'] . "
+                            </option>";
+                    }
+                    ?>
+                </select><br>
+
+</form>
+
+
+    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php?tp=upl" method="post" enctype="multipart/form-data">
                 <input type="text" name="appName" placeholder="App Name" required><br>
                 <input type="text" name="Description" placeholder="App Description" required><br>
                 <input type="text" name="appPrice" placeholder="App Price" required><br>
