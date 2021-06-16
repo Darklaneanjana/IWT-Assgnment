@@ -54,10 +54,16 @@ if (isset($_SESSION["userID"])) {
 </div>
         
 
-<div class='upl'>
+
+
+
+
+
+<div class='upd'>
     <h3>Upload App</h3>
     <hr>
-    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+
+    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php?tp=upl" method="post" enctype="multipart/form-data">
                 <input type="text" name="appName" placeholder="App Name" required><br>
                 <input type="text" name="Description" placeholder="App Description" required><br>
                 <input type="text" name="appPrice" placeholder="App Price" required><br>
@@ -97,6 +103,29 @@ if (isset($_SESSION["userID"])) {
         <div class='upl'>
             <h3>Update App</h3>
             <hr>
+            <form method="post" action="">
+  
+            <select name="selectAP" id="selectAP">
+                    <?php
+                    $sqla = mysqli_query($conn, "SELECT * from app;");
+                    while ($rowa = mysqli_fetch_array($sqla)) {
+                        echo "<option value='" . $rowa['AppID'] . "'>  
+                                " . $rowa['appName'] . "
+                            </option>";
+                    }
+                    ?>
+                </select>
+            <button type='submit'  name='submit'>Select App</button>
+            </form>
+
+            <?php 
+                if(isset($_POST["selectAP"])){
+                    $sqla = mysqli_query($conn, "SELECT * from app where AppID = ".$_POST["selectAP"].";");
+                    $rowa = mysqli_fetch_array($sqla);
+                    
+                }
+            ?>
+
             <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="appName" placeholder="App Name" required><br>
                 <input type="text" name="Description" placeholder="App Description" required><br>
@@ -110,25 +139,31 @@ if (isset($_SESSION["userID"])) {
                 <button><a href="devAccount.php">Cancel</a></button>
             </form>
         </div>
-        <div class='del'>
-            <h3>Remove App</h3>
-            <hr>
-            
-                <input type="text" name="appName" placeholder="App Name" required><br>
-                <input type="text" name="Description" placeholder="App Description" required><br>
 
-                <input type="text" name="appType" placeholder="App Type" required><br>
-                <input type="text" name="buildNo" placeholder="BuildNo" required><br>
-                <input type="text" name="appCat" placeholder="App Category" required><br>
-                <input type="file" name="appSS" required><br>
-                <input type="file" name="appFile" required><br>
-                <input type="submit" name="submit" value="Upload">
-                <button><a href="devAccount.php">Cancel</a></button>
-            </form>
-        </div>
+
+
+
+<div class='del'>
+    <h3>Remove App</h3>
+    <hr>
+    <form  action="inc/dev.inc.php?tp=upl" method="post">
+    <select name="selectAP" id="selectAP">
+                    <?php
+                    $sqla = mysqli_query($conn, "SELECT * from app;");
+                    while ($rowa = mysqli_fetch_array($sqla)) {
+                        echo "<option value='" . $rowa['AppID'] . "'>  
+                                " . $rowa['appName'] . "
+                            </option>";
+                    }
+                    ?>
+                </select>
+        <input type="text" name="appName" placeholder="App Name" required><br>
+
+        <button><a href="devAccount.php">Cancel</a></button>
+    </form>
+</div>
 
     </center>
-</body>
 
 <?php
 require_once('php/footer.php');
