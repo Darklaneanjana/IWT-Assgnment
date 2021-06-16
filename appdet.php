@@ -27,15 +27,15 @@ $_SESSION['app']=$_GET["app"]
                 <p class="AppDev"><p><?php echo $drow['devName']; ?></p>
             </div>
             
-            <a href='Payment.php?app=<?php echo $_GET["app"]; ?>'><button class="detbut">
+            <button class="detbut">
                 <?php 
                 if($arow['appType']=='p'){
-                    echo "Buy<br>" . $arow['price'] . "$";
+                    echo " <a href='Payment.php?app=".$_GET['app']." Buy<br>" . $arow['price'] . "$</a>";
                 }
                 else{
                     echo "Download";
                 }
-                ?></a>
+                ?>
             </button>
     
         </div>
