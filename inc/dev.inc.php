@@ -16,13 +16,6 @@ if (isset($_POST['submit'])) {
     $appCat = $_POST['appCat'];
     $catID = $_POST['category'];
 
-    // $result = mysqli_query($conn, "SELECT catID from category where catName='".$appCat."';");
-    // $categoryID = mysqli_fetch_array($result);
-    // $catID = $categoryID[0];
-
-
-
-
     $appSS = $_FILES['appSS'];
     $appSSname = $_FILES['appSS']['name'];
     $appSStmpName = $_FILES['appSS']['tmp_name'];
@@ -41,7 +34,7 @@ if (isset($_POST['submit'])) {
                 $appSSnewName = uniqid('', true) . '.' . $appSSActualExt;
                 $appSSDestination = '../images/Apps/' . $appSSnewName;
                 move_uploaded_file($appSStmpName, $appSSDestination);
-                // header("Location: ../devAccount.php?uploadsuccessfull");
+
             } else {
                 echo "Your file is too big..!!!";
             }
@@ -52,14 +45,7 @@ if (isset($_POST['submit'])) {
         echo "You cannot upload of files this type..!!!";
     }
  
-// echo $appSSnewName;
-// exit();
 
-
-    // while (true) {
-    //     $filename = uniqid('MyApp', true) . '.pdf';
-    //     if (!file_exists(sys_get_temp_dir() . $filename)) break;
-    //    }
     $file = $_FILES['appFile'];
 
     $fileName = $_FILES['appFile']['name'];
@@ -103,10 +89,9 @@ if (isset($_POST['submit'])) {
     $sql2 = "INSERT INTO appss(AppID, SS) VALUES (".$row4['AppID'].",'".$appSSnewName."');";
     mysqli_query($conn, $sql2);
 
-    $sql5 = "INSERT INTO appdev(AppID, devID) VALUES (".$row4['AppID'].",'".$_SESSION["userID"]."');";
+    $sql5 = "INSERT INTO appdev(AppID, devID,Pa) VALUES (".$row4['AppID'].",'".$_SESSION["userID"]."');";
     mysqli_query($conn, $sql5);
 
     header("Location: ../devAccount.php?uploadsuccessfull");
-    // exit();
 }
 

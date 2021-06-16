@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/devaccount.css?v=1" />
-
+<center>
 <?php
 require_once('php/header.php');
 require_once('inc/dbh.inc.php');
@@ -15,21 +15,15 @@ if (isset($_SESSION["userID"])) {
     header("location:signin.php?error=notLoggedIn&tp=dev");
     exit();
 }
-echo $_SESSION["userID"];
-echo $_SESSION["type"];
 ?>
 
-<body>
-    <center>
-        <div class="forms fff">
-            <h3>Edit Profile</h3>
-            <hr>
-            <form name="editProfile" method="post">
+  
+<div class="forms fff">
+    <h3>Edit Profile</h3>
+    <hr>
+    <form name="editProfile" method="post">
 
-
-                <?php
-                require_once('inc/dbh.inc.php');
-
+            <?php
                 $currentDeveloper = $_SESSION["userUID"];
                 $sql = "SELECT * FROM dev WHERE devUID='$currentDeveloper'; ";
 
@@ -56,14 +50,14 @@ echo $_SESSION["type"];
                     mysqli_query($conn, $sql);
                 }
                 ?>
+    </form>
+</div>
+        
 
-        </div>
-        </form>
-
-        <div class='upl'>
-            <h3>Upload App</h3>
-            <hr>
-            <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+<div class='upl'>
+    <h3>Upload App</h3>
+    <hr>
+    <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="appName" placeholder="App Name" required><br>
                 <input type="text" name="Description" placeholder="App Description" required><br>
                 <input type="text" name="appPrice" placeholder="App Price" required><br>
@@ -82,9 +76,7 @@ echo $_SESSION["type"];
                 <select name="category" id="category">
                     <?php
                     $sqlc = mysqli_query($conn, "SELECT catID,catName from category;");;
-
                     while ($rowc = mysqli_fetch_array($sqlc)) {
-                        // <option value="p" >Paid</option>
                         echo "<option value='" . $rowc['catID'] . "'>  
                                 " . $rowc['catName'] . "
                             </option>";
@@ -98,8 +90,10 @@ echo $_SESSION["type"];
                 <input type="submit" name="submit" value="Upload">
                 <button><a href="devAccount.php">Cancel</a></button>
             </form>
+</div>
 
-        </div>
+
+
         <div class='upl'>
             <h3>Update App</h3>
             <hr>
@@ -116,10 +110,10 @@ echo $_SESSION["type"];
                 <button><a href="devAccount.php">Cancel</a></button>
             </form>
         </div>
-        <div class='upl'>
+        <div class='del'>
             <h3>Remove App</h3>
             <hr>
-            <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
+            
                 <input type="text" name="appName" placeholder="App Name" required><br>
                 <input type="text" name="Description" placeholder="App Description" required><br>
 
@@ -139,3 +133,5 @@ echo $_SESSION["type"];
 <?php
 require_once('php/footer.php');
 ?>
+
+
