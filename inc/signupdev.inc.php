@@ -33,7 +33,16 @@ if(isset($_POST["submit"])){
     //     exit();
     // }
 
-    createUser($conn,$name,$email,$uid,$pwd);
+    $sql = "insert into dev  (devName,devPsw,email,devUID) value('" . $name. "','" . $pwd. "','" . $email. "','" . $uid. "');";
+    if(mysqli_query($conn, $sql)){
+        header("location: ../signup.php?error=none");
+    }else{
+        header("location: ../signup.php?error=stmtfailed");
+        exit();
+    }
+  
+    mysqli_close($conn);
+    exit();
 
 
      }
