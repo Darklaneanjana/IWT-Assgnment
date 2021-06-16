@@ -59,7 +59,7 @@ if (isset($_SESSION["userID"])) {
 
 
 
-<div class='upd'>
+<div class='upl'>
     <h3>Upload App</h3>
     <hr>
 
@@ -100,7 +100,8 @@ if (isset($_SESSION["userID"])) {
 
 
 
-        <div class='upl'>
+<div class='upd'>
+
             <h3>Update App</h3>
             <hr>
             <form method="post" action="">
@@ -123,25 +124,50 @@ if (isset($_SESSION["userID"])) {
                     $sqla = mysqli_query($conn, "SELECT * from app where AppID = ".$_POST["selectAP"].";");
                     $rowa = mysqli_fetch_array($sqla);
 
+                    $appName=$rowa['appName'];$Description=$rowa['Description'];$appPrice=$rowa['price'];$appType=$rowa['appType'];$buildNo=$rowa['buildNo'];$catID=$rowa['catID'];$appCat=$rowa['appCat'];;
 
-                    
-                    
+                }else{
+                    $appName="";$Description="";$appPrice="";$appTyp="";$buildNo="";$catID="";$appCat="";
                 }
             ?>
 
-            <form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php" method="post" enctype="multipart/form-data">
-                <input type="text" name="appName" placeholder="App Name" required><br>
-                <input type="text" name="Description" placeholder="App Description" required><br>
-
-                <input type="text" name="appType" placeholder="App Type" required><br>
-                <input type="text" name="buildNo" placeholder="BuildNo" required><br>
-                <input type="text" name="appCat" placeholder="App Category" required><br>
+<form name="myForm" id="a" onsubmit="return validateForm()" action="inc/dev.inc.php?tp=upd" method="post" enctype="multipart/form-data">
+                <?php
+                echo
+                "<input type='text' name='appName' value='".$appName."' placeholder='App Name' required><br>
+                <input type='text' name='Description' value='".$Description."' placeholder='App Description' required><br>
+                <input type='text' name='appPrice' value='".$appPrice."' placeholder='App_Price' required><br>
+                <input type='text' name='buildNo' value='".$buildNo."' placeholder='BuildNo' required><br>"
+                ?>
+                <label for="appType">Paid or Free:</label>
+                <select name="appType" id="appType">
+                    <option value="p">Paid</option>
+                    <option value="f">Free</option>
+                </select><br>
+                <label for="appCat">App or Game:</label>
+                <select name="appCat" id="appCat">
+                    <option value="A">App</option>
+                    <option value="G">Game</option>
+                </select>
+                <br><label for="category">categorye</label>
+                <select name="category" id="category">
+                    <?php
+                    $sqlc = mysqli_query($conn, "SELECT catID,catName from category;");;
+                    while ($rowc = mysqli_fetch_array($sqlc)) {
+                        echo "<option value='" . $rowc['catID'] . "'>  
+                                " . $rowc['catName'] . "
+                            </option>";
+                    }
+                    ?>
+                </select><br>
+                <label for="appSS">Image</label>
                 <input type="file" name="appSS" required><br>
+                <label for="appFile">Apk File</label>
                 <input type="file" name="appFile" required><br>
                 <input type="submit" name="submit" value="Upload">
                 <button><a href="devAccount.php">Cancel</a></button>
             </form>
-        </div>
+</div>
 
 
 
