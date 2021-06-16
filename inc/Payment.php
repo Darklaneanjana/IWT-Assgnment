@@ -1,4 +1,39 @@
-<?php require_once('connection.php');?>
+<title>
+        Payment
+</title>
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/Payment.css">
+<script src="../js/Payment.js"></script>
+
+
+
+<?php
+require_once('php/header.php');
+require_once('inc/dbh.inc.php.php');
+
+if (isset($_SESSION["userID"])) {
+    if ($_SESSION["type"] !== "User") {
+        header("location:index.php?error=notUser");
+        exit();
+    } else {
+        echo "<p>Hello there " . $_SESSION["name"] . "</p>";
+    }
+} else {
+    header("location:signin.php?error=notLoggedIn");
+    exit();
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
 <?php
 if(isset($_POST['submit'])){
 
@@ -22,22 +57,6 @@ if($result_set){
 
 }
 }
-?>
-<html lang="en">
-<head>
-
-<title>
-        Payment
-</title>
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/Payment.css">
-<script src="../js/Payment.js"></script>
-
-
-</head>
-<?php
-require_once('php/header.php');
-
 ?>
 
 
