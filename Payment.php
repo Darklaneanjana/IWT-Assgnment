@@ -9,7 +9,7 @@
 
 <?php
 require_once('php/header.php');
-require_once('inc/dbh.inc.php.php');
+require_once('inc/dbh.inc.php');
 
 if (isset($_SESSION["userID"])) {
     if ($_SESSION["type"] !== "User") {
