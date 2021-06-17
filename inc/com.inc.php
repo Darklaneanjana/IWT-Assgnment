@@ -30,8 +30,9 @@
         $message = $_POST['message'];
         $sql = "update comment set message='$message' where cid='$cid';";
         mysqli_query($conn, $sql);
-        // header("Location: ../index.php" );
-        exit;
+        header("Location: ../index.php" );
+
+        exit();
         }
     }
 
@@ -42,7 +43,7 @@
         $sql = "delete from comment where cid='$cid';";
         mysqli_query($conn, $sql);
         // getCom($conn,$_SESSION['app']);
-        exit;
+        exit();
         }
     }
 

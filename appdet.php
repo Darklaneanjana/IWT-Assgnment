@@ -27,17 +27,24 @@ $_SESSION['app']=$_GET["app"]
                 <p class="AppDev"><p><?php echo $drow['devName']; ?></p>
             </div>
             
-            <button class="detbut">
+
+
                 <?php 
                 if($arow['appType']=='p'){
-                    echo " <a href='Payment.php?app=".$_GET['app']." Buy<br>" . $arow['price'] . "$</a>";
+                    echo "<a href='Payment.php?app=".$_GET["app"]."'><button class='detbut'>";
+                    echo "Buy<br>" . $arow['price'] . "$";
+                    echo "</button></a>";
                 }
                 else{
+                    echo "<button class='detbut'>";
                     echo "Download";
+                    echo "</button>";
                 }
-                ?>
-            </button>
-    
+                ?>    
+
+
+
+
         </div>
 
 
@@ -46,8 +53,8 @@ $_SESSION['app']=$_GET["app"]
             <p style="margin: 2px;">This is the latest version</p>
             <?php echo $arow['buildNo']; ?>
         </div>
-        <div style="float: right;"><img src="#"><p style="margin: 2px;">Downloads: <?php echo $downrow["downloads"]; ?></p></div>
-        <div  style="float: right;"><img src="#"><p style="margin: 2px;">Size:<?php echo $arow['size']; ?>MB</p></div>
+        <div style="float: right;"><img style="width: 15px;padding-left: 5px;" src="images/appIco.png"><p style="margin: 2px;">Downloads: <?php echo $downrow["downloads"]; ?></p></div>
+        <div  style="float: right;"><img style="width: 15px;padding-left: 5px;" src="images/appIco.png"><p style="margin: 2px;">Size:<?php echo $arow['size']; ?>MB</p></div>
         </div>
 
     </div>
@@ -70,18 +77,18 @@ $_SESSION['app']=$_GET["app"]
 
 <!--                          Rate                             -->
 
-    <div class="rate">
+    <!-- <div class="rate">
     <div><h2>Rating</h2></div>
         <div>
 
-                <!-- <?php
-                if (isset($_SESSION["userID"])){
+                 <?php
+                //if (isset($_SESSION["userID"])){
 
-                }
-                ?> -->
+                //}
+                ?> 
 
         </div>
-    </div>
+    </div> -->
 
 
 <!--                        Comment                                    -->
@@ -122,6 +129,7 @@ $_SESSION['app']=$_GET["app"]
         <div class="comment-area">
 
             <?php  
+            date_default_timezone_set('Asia/Colombo');
             if (isset($_SESSION["uid"])){
                 echo "<form method='POST' action=  'inc/com.inc.php'>
                     <input type='hidden' name='uid' value='".$_SESSION["uid"]."'>

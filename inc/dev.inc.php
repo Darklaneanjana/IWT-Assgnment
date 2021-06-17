@@ -2,32 +2,31 @@
 session_start();
 require_once('dbh.inc.php');
 
-if(isset($_POST["remove"])){
+if (isset($_POST["remove"])) {
     echo $_POST["selectAP"];
     // exit();
-    $sql1 = "delete  from appdown where AppID = ".$_POST["selectAP"].";";
+    $sql1 = "delete  from appdown where AppID = " . $_POST["selectAP"] . ";";
     mysqli_query($conn, $sql1);
 
-    $sql2 = "delete  from appss where AppID = ".$_POST["selectAP"].";";
+    $sql2 = "delete  from appss where AppID = " . $_POST["selectAP"] . ";";
     mysqli_query($conn, $sql2);
 
-    $sql3 = "delete  from appdev where AppID = ".$_POST["selectAP"].";";
+    $sql3 = "delete  from appdev where AppID = " . $_POST["selectAP"] . ";";
     mysqli_query($conn, $sql3);
 
-    $sql4 = "delete  from comment where AppID = ".$_POST["selectAP"].";";
+    $sql4 = "delete  from comment where AppID = " . $_POST["selectAP"] . ";";
     mysqli_query($conn, $sql4);
 
-    $sql5 = "delete  from app where AppID = ".$_POST["selectAP"].";";
+    $sql5 = "delete  from app where AppID = " . $_POST["selectAP"] . ";";
     mysqli_query($conn, $sql5);
 
     header("Location: ../devAccount.php");
 
     exit();
-    
 }
 
 
-if ($_GET['tp']=='upl') {
+if ($_GET['tp'] == 'upl') {
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
     $Description = $_POST['Description'];
@@ -55,7 +54,6 @@ if ($_GET['tp']=='upl') {
                 $appSSnewName = uniqid('', true) . '.' . $appSSActualExt;
                 $appSSDestination = '../images/Apps/' . $appSSnewName;
                 move_uploaded_file($appSStmpName, $appSSDestination);
-
             } else {
                 echo "Your file is too big..!!!";
             }
@@ -95,19 +93,19 @@ if ($_GET['tp']=='upl') {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
-    $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, catID, size, appCat,devIDffff) VALUES('".$appName."','".$Description. "',".$appPrice. ",'".$appType. "','".$buildNo. "',".$userID. ",".round($fileSize/(1024*1024)). ",'".$appCat. "',1);";
+    $sql1 = "INSERT INTO app(appName, Description, price, appType, buildNo, catID, size, appCat,devIDffff) VALUES('" . $appName . "','" . $Description . "'," . $appPrice . ",'" . $appType . "','" . $buildNo . "'," . $userID . "," . round($fileSize / (1024 * 1024)) . ",'" . $appCat . "',1);";
     mysqli_query($conn, $sql1);
-    
-    $sql4 = mysqli_query($conn,"select AppID from app where appName= '".$appName."'; ");
+
+    $sql4 = mysqli_query($conn, "select AppID from app where appName= '" . $appName . "'; ");
     $row4 = mysqli_fetch_array($sql4);
 
-    $sql3 = "INSERT INTO appdown(AppID, downloads) VALUES (".$row4['AppID'].",0);";
+    $sql3 = "INSERT INTO appdown(AppID, downloads) VALUES (" . $row4['AppID'] . ",0);";
     mysqli_query($conn, $sql3);
 
-    $sql2 = "INSERT INTO appss(AppID, SS,Path) VALUES (".$row4['AppID'].",'".$appSSnewName."','".$fileNewName."');";
+    $sql2 = "INSERT INTO appss(AppID, SS,Path) VALUES (" . $row4['AppID'] . ",'" . $appSSnewName . "','" . $fileNewName . "');";
     mysqli_query($conn, $sql2);
 
-    $sql5 = "INSERT INTO appdev(AppID, devID) VALUES (".$row4['AppID'].",'".$_SESSION["userID"]."');";
+    $sql5 = "INSERT INTO appdev(AppID, devID) VALUES (" . $row4['AppID'] . ",'" . $_SESSION["userID"] . "');";
     mysqli_query($conn, $sql5);
 
     header("Location: ../devAccount.php?uploadsuccessfull");
@@ -121,7 +119,7 @@ if ($_GET['tp']=='upl') {
 
 
 
-if ($_GET['tp']=='upd') {
+if ($_GET['tp'] == 'upd') {
 
     $userID = $_SESSION["userID"];
     $appName = $_POST['appName'];
@@ -150,7 +148,6 @@ if ($_GET['tp']=='upd') {
                 $appSSnewName = uniqid('', true) . '.' . $appSSActualExt;
                 $appSSDestination = '../images/Apps/' . $appSSnewName;
                 move_uploaded_file($appSStmpName, $appSSDestination);
-
             } else {
                 echo "Your file is too big..!!!";
             }
@@ -160,7 +157,7 @@ if ($_GET['tp']=='upd') {
     } else {
         echo "You cannot upload of files this type..!!!";
     }
- 
+
 
     $file = $_FILES['appFile'];
 
@@ -192,13 +189,24 @@ if ($_GET['tp']=='upd') {
         echo "You cannot upload of files this type..!!!";
     }
 
-    $sql4 = mysqli_query($conn,"select AppID from app where appName= '".$appName."'; ");
+    $sql4 = mysqli_query($conn, "select AppID from app where appName= '" . $appName . "'; ");
     $row4 = mysqli_fetch_array($sql4);
+    echo $row4['AppID'];
+    // exit();
+    // ".$row4['AppID']."
+    $sql1 = "UPDATE app set appName='".$appName."', Description='".$Description. "', price=4, appType='f', buildNo='1', catID=1, size=1, appCat='G' where AppID=".$row4['AppID']."      ;";
 
-    $sql1 = "UPDATE app set appName='".$appName."', Description='".$Description. "', price=".$appPrice. ", appType='".$appType. "', buildNo='".$buildNo. "', devID=".$userID. ", catID=".$catID. ", size=".round($fileSize/(1024*1024)).", appCat='".$appCat. "' where appID=".$row4['AppID'].";";
+<<<<<<< HEAD
+    // $sql1 = "UPDATE app set appName='".$appName."', Description='".$Description. "', price=".$appPrice. ", appType='".$appType. "', buildNo='".$buildNo."', catID=".$catID.", size=".round($fileSize/(1024*1024)).", appCat='".$appCat. "' where appID=".$row4['AppID'].";";
     mysqli_query($conn, $sql1);
-s
+
     $sql2 = "UPDATE  appss set SS='".$appSSnewName."',Path='".$fileNewName."' where AppID=".$row4['AppID'].";";
+=======
+    $sql1 = "UPDATE app set appName='" . $appName . "', Description='" . $Description . "', price=" . $appPrice . ", appType='" . $appType . "', buildNo='" . $buildNo . "', devID=" . $userID . ", catID=" . $catID . ", size=" . round($fileSize / (1024 * 1024)) . ", appCat='" . $appCat . "' where appID=" . $row4['AppID'] . ";";
+    mysqli_query($conn, $sql1);
+
+    $sql2 = "UPDATE  appss set SS='" . $appSSnewName . "',Path='" . $fileNewName . "' where AppID=" . $row4['AppID'] . ";";
+>>>>>>> e6177aac300ed64e477fa3e0237d53f06728b68b
     mysqli_query($conn, $sql2);
 
     header("Location: ../devAccount.php?updatesuccessfull");
