@@ -30,6 +30,19 @@ if (isset($_SESSION["userID"])) {
 
 
 <?php
+
+$sql = mysqli_query($conn,"select * from App where AppID = " . $aID . " ");
+    $row = mysqli_fetch_array($sql);
+
+
+
+
+
+
+
+
+
+
 if(isset($_POST['submit'])){
 
 $card = $_POST['cardnum'];

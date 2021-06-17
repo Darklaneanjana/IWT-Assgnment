@@ -196,17 +196,12 @@ if ($_GET['tp'] == 'upd') {
     // ".$row4['AppID']."
     $sql1 = "UPDATE app set appName='".$appName."', Description='".$Description. "', price=4, appType='f', buildNo='1', catID=1, size=1, appCat='G' where AppID=".$row4['AppID']."      ;";
 
-<<<<<<< HEAD
-    // $sql1 = "UPDATE app set appName='".$appName."', Description='".$Description. "', price=".$appPrice. ", appType='".$appType. "', buildNo='".$buildNo."', catID=".$catID.", size=".round($fileSize/(1024*1024)).", appCat='".$appCat. "' where appID=".$row4['AppID'].";";
-    mysqli_query($conn, $sql1);
 
-    $sql2 = "UPDATE  appss set SS='".$appSSnewName."',Path='".$fileNewName."' where AppID=".$row4['AppID'].";";
-=======
-    $sql1 = "UPDATE app set appName='" . $appName . "', Description='" . $Description . "', price=" . $appPrice . ", appType='" . $appType . "', buildNo='" . $buildNo . "', devID=" . $userID . ", catID=" . $catID . ", size=" . round($fileSize / (1024 * 1024)) . ", appCat='" . $appCat . "' where appID=" . $row4['AppID'] . ";";
+    $sql1 = "UPDATE app set appName='" . $appName . "', Description='" . $Description . "', price=" . $appPrice . ", appType='" . $appType . "', buildNo='" . $buildNo . "', catID=" . $catID . ", size=" . round($fileSize / (1024 * 1024)) . ", appCat='" . $appCat . "' where appID=" . $row4['AppID'] . ";";
     mysqli_query($conn, $sql1);
 
     $sql2 = "UPDATE  appss set SS='" . $appSSnewName . "',Path='" . $fileNewName . "' where AppID=" . $row4['AppID'] . ";";
->>>>>>> e6177aac300ed64e477fa3e0237d53f06728b68b
+
     mysqli_query($conn, $sql2);
 
     header("Location: ../devAccount.php?updatesuccessfull");
