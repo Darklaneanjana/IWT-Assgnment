@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/Payment.css">
 <script src="../js/Payment.js"></script>
-
+<center>
 
 
 <?php
@@ -31,8 +31,6 @@ if (isset($_SESSION["userID"])) {
 
 <?php
 
-$sql = mysqli_query($conn,"select * from App where AppID = " . $aID . " ");
-    $row = mysqli_fetch_array($sql);
 
 
 
@@ -68,13 +66,18 @@ else{
 
 
 
- 
-   <body>
+
     <fieldset>
-   <center>
+    <h3> Ammount </h3>
+    <h4>
+    <?php echo $row['price']."$"; ?></h4>
     <h1>Payment</h1><br>
     <h3>Accepted Cards</h3>
-    <form action="Payment.php" method="post">
+
+
+
+
+    <form action="" method="post">
 	
      <label>Card Number</label>
     <input type="text" name="cardnum">
@@ -91,14 +94,24 @@ else{
 
 	<input type = "submit" value ="~-submit-~" name="submit">
     </form>
-</center>
+
 </fieldset>
 
+<?php if(isset($_POST['submit'])) {
+
+}
 
 
+?>
+
+
+
+
+
+
+
+
+</center>
 <?php
-
 require_once('php/footer.php');
 ?> 
-</body>
-</html>

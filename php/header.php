@@ -32,7 +32,7 @@
 			
 			<div class="search">
 				
-				<form action="applist.php" method="GET">
+				<form action="search.php" method="GET">
 				<input type='hidden' name='type' value='search'>
 				<input type="text" placeholder="Search.." name="search">
 				</form>
